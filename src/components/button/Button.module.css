@@ -1,0 +1,109 @@
+.center {
+  display: flex;
+  justify-content: center;
+  margin: 3rem auto;
+}
+
+.button {
+  position: relative;
+  background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(248,244,229,0.9));
+  color: #333;
+  padding: 15px 36px;
+  font-size: 1.05rem;
+  font-family: "Bona", sans-serif;
+  font-weight: 400;
+  direction: rtl;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  border: none;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.04);
+  z-index: 1;
+}
+
+/* Gradient border using pseudo-element */
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 2px;
+  padding: 1px;
+  background: linear-gradient(135deg, #d4af37 0%, #f2e3a9 50%, #d4af37 100%);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  transition: all 0.35s ease;
+}
+
+/* Subtle depth effect */
+.button::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 2px;
+  z-index: -2;
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  opacity: 0;
+}
+
+
+
+.button:hover::after {
+  transform: translate(3px, 3px);
+  opacity: 1;
+}
+
+/* Active state */
+.button:active {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 3px 8px rgba(0, 0, 0, 0.06),
+    0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* Button content styling */
+.buttonContent {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.button:hover .buttonContent {
+  transform: translateY(-1px);
+  color: #000;
+}
+
+/* Elegant shine effect */
+.shine {
+  position: absolute;
+  top: -100%;
+  left: -200%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 45%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 55%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  transition: 0.5s;
+  opacity: 0;
+  pointer-events: none;
+}

@@ -1,0 +1,120 @@
+.faqItem {
+  margin-bottom: 1rem;
+  border: 1px solid #d4af37; /* שונה מ-#d2c0b2 לצבע זהב */
+  border-radius: 8px;
+  overflow: hidden;
+  width: 500px;
+  margin: 15px auto;
+  direction: rtl;
+  box-shadow: 0 2px 4px rgba(212, 175, 55, 0.2); /* שונה לגוון זהב תואם */
+  text-decoration: none;
+}
+
+.questionButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(248,244,229,0.9)); /* שונה מ-#f8f4f1 לגרדיאנט */
+  border: none;
+  text-decoration: none;
+  color: #333; /* שונה מ-#5a4a3f לשחור בהיר יותר */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.questionButton:hover {
+  background: linear-gradient(to right, rgba(255,255,255,1), rgba(248,244,229,1)); /* שונה מ-#f1e9e4 לגרדיאנט במצב hover */
+}
+
+.questionText {
+  font-family: 'AssistantR', sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #333; /* שונה מ-#5a4a3f לשחור בהיר יותר */
+  direction: rtl;
+  flex-grow: 1;
+}
+
+.iconWrapper {
+  width: 24px;
+  flex-shrink: 0;
+  color: #d4af37; /* שונה מ-#b3967f לצבע זהב */
+  text-decoration: none;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.answerContainer {
+  overflow: hidden;
+  transition: height 0.3s ease;
+  background-color: #fff; /* שונה מ-#fdfbf9 ללבן */
+  margin: auto;
+  direction: rtl;
+}
+
+.answerText {
+  font-family: 'AssistantR', sans-serif;
+  font-size: 1.05rem;
+  padding: 1rem;
+  color: #333; /* שונה מ-#5a4a3f לשחור בהיר יותר */
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+
+/* Accent for links or important text within answers */
+.answerText a, .answerText strong {
+  color: #d4af37; /* שונה מ-#b3967f לצבע זהב */
+}
+
+/* Responsive styles remain unchanged */
+@media (max-width: 350px) {
+  .faqItem {
+    width: 280px;
+  }
+  .questionText {
+    font-size: 1rem;
+  }
+  .answerText {
+    font-size: 0.9rem; 
+  }
+}
+
+@media (min-width: 350px) and (max-width: 450px) {
+  .faqItem {
+    width: 320px;
+  }
+  .questionText {
+    font-size: 1.05rem;
+  }
+  .answerText {
+    font-size: 0.95rem; 
+  }
+}
+
+@media (min-width: 450px) and (max-width: 550px) {
+  .faqItem {
+    width: 400px;
+  }
+  .questionText {
+    font-size: 1.1rem;
+  }
+  .answerText {
+    font-size: 1rem; 
+  }
+}
+
+/* חשוב להוסיף את זה עבור פונקציונליות פתיחה וסגירה */
+.active .answerContainer {
+  height: auto;
+}
+
+.active .icon {
+  transform: rotate(180deg);
+}
