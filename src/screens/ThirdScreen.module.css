@@ -21,7 +21,7 @@
   background: linear-gradient(
     to right,
     #e3e3e3 calc(100% - (var(--scroll-progress) * 100%)),
-    #fdc777 calc(100% - (var(--scroll-progress) * 100%))
+    #d4a017 calc(100% - (var(--scroll-progress) * 100%))
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -8,11 +8,11 @@
     text-align: center;
     direction: rtl;
     line-height: 1.2;
-    background: linear-gradient(135deg, #ffd700 30%, #fcd794 50%, #ffa726 90%);
+    background: linear-gradient(135deg, #d4a017 30%, #cc9900 50%, #b8860b 90%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
-    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
     padding: 0 1rem;
 }
 
