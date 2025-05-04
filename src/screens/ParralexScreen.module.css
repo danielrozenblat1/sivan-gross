@@ -1,0 +1,361 @@
+/* ParallaxScreen.module.css */
+.container {
+    position: relative;
+    margin: 20px auto;
+    width: 90%;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+    
+    /* Add transition properties for smooth animations */
+    transition: transform 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67),
+                opacity 0.8s ease;
+    
+    /* Initial state for reveal animation */
+    opacity: 0;
+    transform: translateY(60px);
+    perspective: 1000px; /* Adds 3D perspective for parallax effects */
+}
+
+/* Visible state for when element enters viewport */
+.container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Active state for when element is centered in viewport */
+.container.active .imageWrapper {
+    box-shadow: 0 20px 40px rgba(120, 120, 120, 0.25), 0 10px 25px rgba(212, 175, 55, 0.1);
+}
+
+.container.active .backgroundImage {
+    filter: saturate(1.25) brightness(1.05) contrast(1.05);
+}
+
+.imagesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 30%;
+    height: 45%; /* Reduced height */
+    border-radius: 30px;
+    overflow: hidden;
+    transition: all 0.5s ease-out;
+    box-shadow: 
+        0 10px 30px rgba(120, 120, 120, 0.15),
+        0 5px 15px rgba(212, 175, 55, 0.08);
+    will-change: transform;
+}
+
+/* Set different heights for each image */
+.image1 {
+    margin-top: 0;
+}
+
+.image2 {
+    margin-top: 50px;
+    height: 50%; /* Reduced height */
+}
+
+.image3 {
+    margin-top: 25px;
+    height: 40%; /* Reduced height */
+}
+
+.backgroundImage {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.85;
+    border-radius: 30px;
+    transition: transform 0.5s ease-out, filter 0.5s ease, border-radius 0.5s ease;
+    will-change: transform;
+    transform-origin: center center;
+    filter: saturate(1.1) brightness(1.02) contrast(1.03);
+    box-shadow: 
+        inset 0 0 30px rgba(120, 120, 120, 0.2),
+        0 5px 15px rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+/* Set different background images for each image */
+.image1 .backgroundImage {
+    background-image: url('../images/סיון\ גרוס\ סוויטה\ של\ אושר\ 10.png');
+}
+
+.image2 .backgroundImage {
+    background-image: url('../images/סיון\ גרוס\ סוויטה\ של\ אושר\ 12.png');
+}
+
+.image3 .backgroundImage {
+    background-image: url('../images/סיון\ גרוס\ סוויטה\ של\ אושר\ 9.png');
+}
+
+/* Add hover effect */
+.imageWrapper:hover .backgroundImage {
+    filter: saturate(1.3) brightness(1.1) contrast(1.05);
+    border-radius: 25px;
+    transform: scale(1.03);
+}
+
+.imageWrapper:hover {
+    z-index: 10;
+    box-shadow: 
+        0 15px 35px rgba(120, 120, 120, 0.25),
+        0 8px 20px rgba(212, 175, 55, 0.15);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    transition: transform 0.3s ease-out;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(212, 175, 55, 0.02) 50%,
+        rgba(120, 120, 120, 0.05) 100%
+    );
+    z-index: 1;
+    border-radius: 30px;
+}
+
+.parallaxLayer1, .parallaxLayer2 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.parallaxLayer1 {
+    top: -20%;
+    height: 100%;
+    background-size: 160%;
+    background-image: radial-gradient(
+        circle at 80% 20%,
+        rgba(212, 175, 55, 0.08) 0%,
+        rgba(255, 255, 255, 0) 45%
+    );
+    animation: floatLayer1 20s infinite alternate ease-in-out;
+}
+
+.parallaxLayer2 {
+    bottom: -20%;
+    height: 100%;
+    background-size: 120%;
+    background-image: radial-gradient(
+        circle at 20% 80%,
+        rgba(120, 120, 120, 0.1) 0%,
+        rgba(0, 0, 0, 0) 50%
+    );
+    animation: floatLayer2 15s infinite alternate-reverse ease-in-out;
+}
+
+/* Add unique animations for each image */
+.image1 .parallaxLayer1 {
+    animation-duration: 20s;
+}
+
+.image2 .parallaxLayer1 {
+    animation-duration: 25s;
+    animation-delay: 0.5s;
+}
+
+.image3 .parallaxLayer1 {
+    animation-duration: 18s;
+    animation-delay: 1s;
+}
+
+.image1 .parallaxLayer2 {
+    animation-duration: 15s;
+}
+
+.image2 .parallaxLayer2 {
+    animation-duration: 17s;
+    animation-delay: 0.7s;
+}
+
+.image3 .parallaxLayer2 {
+    animation-duration: 22s;
+    animation-delay: 1.2s;
+}
+
+@keyframes floatLayer1 {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        transform: translateY(5%) translateX(3%);
+    }
+}
+
+@keyframes floatLayer2 {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        transform: translateY(-5%) translateX(-3%);
+    }
+}
+
+/* Add animation for when element first appears */
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Make each image float in/out at different timing */
+.imageWrapper {
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    animation-name: reveal;
+}
+
+.image1 {
+    animation-delay: 0.1s;
+}
+
+.image2 {
+    animation-delay: 0.3s;
+}
+
+.image3 {
+    animation-delay: 0.5s;
+}
+
+/* Golden highlight on image edges */
+.imageWrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    box-shadow: 
+        inset 0 0 0 1px rgba(212, 175, 55, 0.1),
+        0 0 0 1px rgba(212, 175, 55, 0.05);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Responsive adjustments */
+/* Below 350px */
+@media screen and (max-width: 349px) {
+    .container {
+        width: 95%;
+        height: 50vh;
+    }
+    
+    .imagesContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .imageWrapper {
+        width: 95%;
+        height: 30%;
+        margin-top: 0 !important;
+    }
+    
+    .image2 {
+        margin-top: 5px !important;
+    }
+    
+    .image3 {
+        margin-top: 5px !important;
+    }
+}
+  
+/* 350px - 650px */
+@media screen and (min-width: 350px) and (max-width: 650px) {
+    .container {
+        width: 95%;
+        height: 60vh;
+    }
+    
+    .imagesContainer {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .imageWrapper {
+        width: 90%;
+        height: 30%;
+        margin-top: 0 !important;
+    }
+    
+    .image2 {
+        margin-top: 5px !important;
+    }
+    
+    .image3 {
+        margin-top: 5px !important;
+    }
+}
+  
+/* 650px - 900px */
+@media screen and (min-width: 651px) and (max-width: 900px) {
+    .imagesContainer {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .imageWrapper {
+        width: 45%;
+        height: 40%; /* Reduced height */
+    }
+    
+    .image3 {
+        width: 70%;
+        margin-top: 10px;
+        height: 35%; /* Reduced height */
+    }
+}
+  
+/* 900px - 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .imageWrapper {
+        width: 30%;
+    }
+    
+    .image1 {
+        height: 45%; /* Reduced height */
+        margin-top: 0;
+    }
+    
+    .image2 {
+        height: 50%; /* Reduced height */
+        margin-top: 30px;
+    }
+    
+    .image3 {
+        height: 40%; /* Reduced height */
+        margin-top: 15px;
+    }
+}
+
+/* Custom effect for extremely large screens */
+@media screen and (min-width: 1600px) {
+    .container {
+        width: 80%;
+        max-width: 1600px;
+    }
+}

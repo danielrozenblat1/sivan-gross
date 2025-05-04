@@ -1,0 +1,449 @@
+/* CSS הבסיסי */
+.stepsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  padding: 2.5rem 2rem;
+  font-family: 'Assistant', sans-serif;
+  direction: rtl;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.step::after {
+  content: '';
+  position: absolute;
+  top: calc(3.5rem + 10px);
+  right: 1.75rem;
+  width: 1px;
+  height: calc(100% + 2rem);
+  background: linear-gradient(to bottom, rgba(232, 170, 20, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.step:not(:last-child)::after {
+  opacity: 0.6;
+}
+
+.stepNumberWrapper {
+  position: relative;
+  margin-left: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  opacity: 0.9;
+}
+
+.stepNumberWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+  box-shadow: 0 2px 8px rgba(210, 173, 30, 0.08);
+  transition: all 0.5s ease;
+}
+
+.stepNumber {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Roman numerals as pseudo-element */
+.stepNumber::before {
+  content: attr(data-roman);
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #D4AF37 0%, #C5A028 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.85;
+  transition: all 0.4s ease;
+}
+
+.step:hover .stepNumber::before {
+  opacity: 1;
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #E8AA14 0%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.step:hover .stepNumberWrapper::before {
+  box-shadow: 0 3px 12px rgba(210, 173, 30, 0.15);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
+}
+
+.stepContent {
+  flex: 1;
+  text-align: right;
+  position: relative;
+  padding-top: 0.3rem;
+}
+
+.stepTitle {
+  font-family: 'Bona', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0 0 0.7rem 0;
+  color: #8B4513;
+  opacity: 0.9;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.stepTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  right: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(to right, rgba(232, 170, 20, 0.4), transparent);
+  transition: width 0.5s ease;
+}
+
+.step:hover .stepTitle {
+  opacity: 1;
+}
+
+.step:hover .stepTitle::after {
+  width: 100%;
+}
+
+.stepDescription {
+  font-family: 'Bona', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  margin: 0;
+  color: #A67B5B;
+  opacity: 0.8;
+  line-height: 1.6;
+  max-width: 92%;
+  transition: opacity 0.3s ease;
+}
+
+.step:hover .stepDescription {
+  opacity: 1;
+}
+
+/* ScrollReveal Animation Classes */
+.step {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.step.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delay for each step */
+.step:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.step:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.step:nth-child(3) {
+  transition-delay: 0.5s;
+}
+
+/* Number reveal animation */
+.stepNumberWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.stepNumber::before {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.revealed .stepNumber::before {
+  opacity: 0.85;
+  transform: translateY(0);
+}
+
+/* Title and description reveal animation */
+.stepTitle, .stepDescription {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.revealed .stepTitle {
+  opacity: 0.9;
+  transform: translateX(0);
+  transition-delay: 0.2s;
+}
+
+.revealed .stepDescription {
+  opacity: 0.8;
+  transform: translateX(0);
+  transition-delay: 0.4s;
+}
+
+/* רספונסיביות לפי הגדלים המבוקשים */
+
+/* מתחת ל-350px */
+@media (max-width: 349px) {
+  .stepsContainer {
+    gap: 2rem;
+    padding: 1.5rem 1rem;
+  }
+  
+  .stepNumberWrapper {
+    margin-left: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .stepNumber::before {
+    font-size: 1.3rem;
+  }
+  
+  .step::after {
+    top: calc(2.5rem + 10px);
+    right: 1.25rem;
+  }
+  
+  .stepTitle {
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .stepDescription {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+}
+
+/* 350px-450px */
+@media (min-width: 350px) and (max-width: 450px) {
+  .stepsContainer {
+    gap: 2.2rem;
+    padding: 1.7rem 1.2rem;
+  }
+  
+  .stepNumberWrapper {
+    margin-left: 1.2rem;
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+  
+  .stepNumber::before {
+    font-size: 1.5rem;
+  }
+  
+  .step::after {
+    top: calc(2.8rem + 10px);
+    right: 1.4rem;
+  }
+  
+  .stepTitle {
+    font-size: 1.15rem;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .stepDescription {
+    font-size: 0.92rem;
+    max-width: 100%;
+  }
+}
+
+/* 450px-550px */
+@media (min-width: 451px) and (max-width: 550px) {
+  .stepsContainer {
+    gap: 2.5rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  .stepNumberWrapper {
+    margin-left: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .stepNumber::before {
+    font-size: 1.6rem;
+  }
+  
+  .step::after {
+    top: calc(3rem + 10px);
+    right: 1.5rem;
+  }
+  
+  .stepTitle {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .stepDescription {
+    font-size: 0.95rem;
+    max-width: 95%;
+  }
+}
+
+/* 550px-650px */
+@media (min-width: 551px) and (max-width: 650px) {
+  .stepsContainer {
+    gap: 2.8rem;
+    padding: 2.2rem 1.7rem;
+  }
+  
+  .stepNumberWrapper {
+    margin-left: 1.7rem;
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+  
+  .stepNumber::before {
+    font-size: 1.7rem;
+  }
+  
+  .step::after {
+    top: calc(3.2rem + 10px);
+    right: 1.6rem;
+  }
+  
+  .stepTitle {
+    font-size: 1.25rem;
+  }
+  
+  .stepDescription {
+    font-size: 1rem;
+    max-width: 95%;
+  }
+}
+
+/* 650px-750px */
+@media (min-width: 651px) and (max-width: 750px) {
+  .stepsContainer {
+    gap: 3rem;
+    padding: 2.3rem 1.8rem;
+  }
+  
+  .stepNumberWrapper {
+    width: 3.3rem;
+    height: 3.3rem;
+  }
+  
+  .stepNumber::before {
+    font-size: 1.8rem;
+  }
+  
+  .step::after {
+    top: calc(3.3rem + 10px);
+    right: 1.65rem;
+  }
+  
+  .stepTitle {
+    font-size: 1.3rem;
+  }
+  
+  .stepDescription {
+    font-size: 1rem;
+  }
+}
+
+/* 750px-850px */
+@media (min-width: 751px) and (max-width: 850px) {
+  .stepsContainer {
+    gap: 3.2rem;
+    padding: 2.4rem 1.9rem;
+  }
+  
+  .stepNumberWrapper {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+  
+  .stepNumber::before {
+    font-size: 1.9rem;
+  }
+  
+  .step::after {
+    top: calc(3.4rem + 10px);
+    right: 1.7rem;
+  }
+}
+
+/* 850px-950px */
+@media (min-width: 851px) and (max-width: 950px) {
+  .stepsContainer {
+    gap: 3.3rem;
+    padding: 2.4rem 2rem;
+  }
+  
+  .stepNumberWrapper {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+/* 950px-1050px */
+@media (min-width: 951px) and (max-width: 1050px) {
+  .stepsContainer {
+    gap: 3.5rem;
+    max-width: 900px;
+  }
+}
+
+/* 1050px-1150px */
+@media (min-width: 1051px) and (max-width: 1150px) {
+  .stepsContainer {
+    max-width: 950px;
+  }
+}
+
+/* 1150px-1250px */
+@media (min-width: 1151px) and (max-width: 1250px) {
+  .stepsContainer {
+    max-width: 1000px;
+  }
+}
+
+/* מעל 1250px */
+@media (min-width: 1251px) {
+  .stepsContainer {
+    max-width: 1100px;
+    gap: 4rem;
+    padding: 3rem 2rem;
+  }
+  
+  .stepNumberWrapper {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .stepNumber::before {
+    font-size: 2.2rem;
+  }
+  
+  .stepTitle {
+    font-size: 1.5rem;
+  }
+  
+  .stepDescription {
+    font-size: 1.1rem;
+  }
+}

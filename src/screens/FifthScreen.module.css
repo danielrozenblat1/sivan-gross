@@ -1,0 +1,23 @@
+.title {
+    font-size: 2.5rem;
+    margin: 2% auto;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    font-family: 'Bona', sans-serif;
+    text-align: center;
+    direction: rtl;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #daa520 30%, #b08d57 50%, #cd7f32 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+    padding: 0 1rem;
+}
+.description {
+    font-family: 'Bona', sans-serif;
+    font-size: 1.4rem;
+margin:2% auto;
+   text-align: center;
+   
+}

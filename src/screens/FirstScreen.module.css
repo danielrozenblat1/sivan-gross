@@ -1,0 +1,687 @@
+.carouselContainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.carouselInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carouselItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.carouselImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.1);
+  transition: transform 6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carouselItem.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.carouselItem.active .carouselImage {
+  transform: scale(1);
+}
+
+.carouselItem.next {
+  opacity: 0.8;
+  transform: scale(1.05);
+  filter: blur(2px);
+  z-index: 1;
+}
+
+.caption {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease 0.3s;
+}
+
+.carouselItem.active .caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glass Panel Styles */
+.glassPanel {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35%;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  
+  /* Animation */
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Logo container and image styles */
+.logoContainer {
+  width: 100px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.logoImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.logoImage:hover {
+  transform: scale(1.05);
+}
+
+.englishTitle {
+  width: 95%;
+  color: white;
+  font-family: 'Stardos';
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hebrewTagline {
+  width: 95%;
+  font-family: 'Fredoka', sans-serif;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.indicators {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+/* Special animation for image transitions */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOutScale {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+/* Animation for glass panel */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Dynamic gradient animation for transitions */
+.carouselItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.3) 100%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.carouselItem.active::before {
+  opacity: 1;
+}
+
+/* Floating Buttons Container */
+.floatingButtonsContainer {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 100;
+}
+
+/* Base Button Styles */
+.floatingButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.floatingButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.floatingButton:active {
+  transform: scale(0.95);
+}
+
+/* WhatsApp Button (עכשיו כפתור הודעה) */
+.whatsappButton {
+  background-color: #25D366;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Phone Button */
+.phoneButton {
+  background-color: #007bff;
+}
+
+/* Button Icon - גודל בסיסי לאייקון טלפון */
+.buttonIcon {
+  width: 28px;
+  height: 28px;
+}
+
+/* אייקון הודעה - פרופורציות מתאימות */
+.whatsappButton .buttonIcon {
+  width: 38px;
+  height: 38px;
+  transform: scale(1.1);
+}
+
+/* Responsive breakpoints */
+
+/* Below 350px */
+@media (max-width: 349px) {
+  .glassPanel {
+    width: 95%;
+    padding: 0.75rem;
+    bottom: 20%;
+  }
+  
+  .logoContainer {
+    width: 60px;
+  }
+  
+  .englishTitle {
+    width: 95%;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .hebrewTagline {
+    width: 95%;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+  }
+  
+  .caption {
+    font-size: 1.2em;
+    bottom: 5%;
+  }
+  
+  .indicators {
+    bottom: 15px;
+  }
+  
+  .indicator {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .floatingButtonsContainer {
+    left: 12px;
+    bottom: 12px;
+    gap: 10px;
+  }
+  
+  .floatingButton {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .phoneButton {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .whatsappButton {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .buttonIcon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .whatsappButton .buttonIcon {
+    width: 26px;
+    height: 26px;
+    transform: scale(1.1);
+  }
+}
+
+/* 350px - 450px */
+@media (min-width: 350px) and (max-width: 450px) {
+  .glassPanel {
+    width: 95%;
+    padding: 0.8rem;
+    bottom: 18%;
+  }
+  
+  .logoContainer {
+    width: 70px;
+  }
+  
+  .englishTitle {
+    width: 100%;
+    font-size: 1.2rem;
+  }
+  
+  .hebrewTagline {
+    width: 95%;
+    font-size: 1.1rem;
+  }
+  
+  .caption {
+    font-size: 1.4em;
+    bottom: 6%;
+  }
+  
+  .indicators {
+    bottom: 20px;
+  }
+  
+  .floatingButtonsContainer {
+    left: 12px;
+    bottom: 12px;
+    gap: 10px;
+  }
+  
+  .floatingButton {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .phoneButton {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .whatsappButton {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .buttonIcon {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .whatsappButton .buttonIcon {
+    width: 28px;
+    height: 28px;
+    transform: scale(1.1);
+  }
+}
+
+/* 450px - 550px */
+@media (min-width: 451px) and (max-width: 550px) {
+  .glassPanel {
+    width: 95%;
+    padding: 0.9rem 1rem;
+    bottom: 17%;
+  }
+  
+  .logoContainer {
+    width: 75px;
+  }
+  
+  .englishTitle {
+    width: 100%;
+    font-size: 1.3rem;
+  }
+  
+  .hebrewTagline {
+    width: 95%;
+    font-size: 1.2rem;
+  }
+  
+  .caption {
+    font-size: 1.5em;
+    bottom: 7%;
+  }
+  
+  .floatingButtonsContainer {
+    left: 15px;
+    bottom: 15px;
+    gap: 12px;
+  }
+  
+  .floatingButton {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .phoneButton {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .whatsappButton {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .buttonIcon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .whatsappButton .buttonIcon {
+    width: 30px;
+    height: 30px;
+    transform: scale(1.1);
+  }
+}
+
+/* 550px - 650px */
+@media (min-width: 551px) and (max-width: 650px) {
+  .glassPanel {
+    width: 95%;
+    padding: 1rem 1.2rem;
+    bottom: 16%;
+  }
+  
+  .logoContainer {
+    width: 80px;
+  }
+  
+  .englishTitle {
+    width: 95%;
+    font-size: 1.5rem;
+  }
+  
+  .hebrewTagline {
+    width: 95%;
+    font-size: 1.3rem;
+  }
+  
+  .caption {
+    font-size: 1.6em;
+    bottom: 8%;
+  }
+  
+  .floatingButtonsContainer {
+    left: 15px;
+    bottom: 15px;
+    gap: 12px;
+  }
+  
+  .floatingButton {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .phoneButton {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .whatsappButton {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .buttonIcon {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .whatsappButton .buttonIcon {
+    width: 32px;
+    height: 32px;
+    transform: scale(1.1);
+  }
+}
+
+/* 650px - 750px */
+@media (min-width: 651px) and (max-width: 750px) {
+  .glassPanel {
+    width: 70%;
+    padding: 1rem 1.3rem;
+    bottom: 15%;
+  }
+  
+  .logoContainer {
+    width: 85px;
+  }
+  
+  .englishTitle {
+    font-size: 1.6rem;
+  }
+  
+  .hebrewTagline {
+    font-size: 1.4rem;
+  }
+  
+  .caption {
+    font-size: 1.7em;
+  }
+  
+  .floatingButtonsContainer {
+    left: 18px;
+    bottom: 18px;
+    gap: 14px;
+  }
+  
+  .phoneButton {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .whatsappButton {
+    width: 62px;
+    height: 62px;
+  }
+  
+  .whatsappButton .buttonIcon {
+    width: 34px;
+    height: 34px;
+    transform: scale(1.1);
+  }
+}
+
+/* 750px - 850px */
+@media (min-width: 751px) and (max-width: 850px) {
+  .glassPanel {
+    width: 65%;
+    padding: 1rem 1.4rem;
+  }
+  
+  .logoContainer {
+    width: 90px;
+  }
+  
+  .englishTitle {
+    font-size: 1.7rem;
+  }
+  
+  .hebrewTagline {
+    font-size: 1.5rem;
+  }
+  
+  .caption {
+    font-size: 1.8em;
+  }
+  
+  .floatingButtonsContainer {
+    left: 20px;
+    bottom: 20px;
+  }
+  
+  .whatsappButton .buttonIcon {
+    width: 36px;
+    height: 36px;
+    transform: scale(1.1);
+  }
+}
+
+/* 850px - 950px */
+@media (min-width: 851px) and (max-width: 950px) {
+  .glassPanel {
+    width: 60%;
+    padding: 1rem 1.5rem;
+  }
+  
+  .logoContainer {
+    width: 95px;
+  }
+  
+  .englishTitle {
+    font-size: 1.8rem;
+  }
+  
+  .hebrewTagline {
+    font-size: 1.6rem;
+  }
+  
+  .caption {
+    font-size: 1.9em;
+  }
+}
+
+/* 950px - 1050px */
+@media (min-width: 951px) and (max-width: 1050px) {
+  .glassPanel {
+    width: 55%;
+  }
+  
+  .logoContainer {
+    width: 100px;
+  }
+  
+  .englishTitle {
+    font-size: 1.9rem;
+  }
+  
+  .hebrewTagline {
+    font-size: 1.7rem;
+  }
+}
+
+/* 1050px - 1150px */
+@media (min-width: 1051px) and (max-width: 1150px) {
+  .glassPanel {
+    width: 45%;
+  }
+}
+
+/* 1150px - 1250px */
+@media (min-width: 1151px) and (max-width: 1250px) {
+  .glassPanel {
+    width: 40%;
+  }
+  
+  .logoContainer {
+    width: 100px;
+  }
+  
+  .englishTitle {
+    font-size: 2rem;
+  }
+  
+  .hebrewTagline {
+    font-size: 1.8rem;
+  }
+}
