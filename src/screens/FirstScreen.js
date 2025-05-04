@@ -111,7 +111,7 @@ const FirstScreen = ({ images }) => {
           />
         </div>
         <h1 className={styles.englishTitle}>SIVAN GROSS | INTERIOR DESIGN</h1>
-        <h2 className={styles.hebrewTagline}>עיצוב פנים ואדריכלות</h2>
+        {/* <h2 className={styles.hebrewTagline}>עיצוב פנים ואדריכלות</h2> */}
       </div>
       
       {/* Indicators */}

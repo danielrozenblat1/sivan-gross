@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './FormScreen.module.css';
 
 const FormScreen = () => {
-  // State for form fields
-  const [formData, setFormData] = useState({
-    fullName: '',
-    phone: '',
-    reason: ''
-  });
-
   // State for validation errors
   const [errors, setErrors] = useState({
     fullName: '',
@@ -20,82 +13,98 @@ const FormScreen = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  // Handle input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-    
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors({
-        ...errors,
-        [name]: ''
-      });
-    }
-  };
+  // Refs for form fields
+  const fullNameRef = useRef(null);
+  const phoneRef = useRef(null);
+  const reasonRef = useRef(null);
 
-  // Validate form
-  const validateForm = () => {
+  // Server settings
+  const serverUrl = "https://dynamic-server-dfc88e1f1c54.herokuapp.com/leads/newLead";
+  const reciver = "Sivangrossdp@gmail.com";
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const name = fullNameRef.current.value;
+    const phone = phoneRef.current.value;
+    const reason = reasonRef.current.value;
+    
+    // Validate inputs
     let valid = true;
     const newErrors = { ...errors };
 
     // Validate full name
-    if (!formData.fullName.trim()) {
+    if (!name.trim()) {
       newErrors.fullName = 'נא להזין שם מלא';
       valid = false;
-    } else if (formData.fullName.trim().length < 2) {
+    } else if (name.trim().length < 2) {
       newErrors.fullName = 'שם חייב להכיל לפחות 2 תווים';
       valid = false;
     }
 
     // Validate phone number (Israeli format)
     const phoneRegex = /^0(5\d|[23489])\d{7}$/;
-    if (!formData.phone.trim()) {
+    if (!phone.trim()) {
       newErrors.phone = 'נא להזין מספר טלפון';
       valid = false;
-    } else if (!phoneRegex.test(formData.phone.trim())) {
+    } else if (!phoneRegex.test(phone.trim())) {
       newErrors.phone = 'נא להזין מספר טלפון תקין';
       valid = false;
     }
 
     // Validate reason
-    if (!formData.reason.trim()) {
+    if (!reason.trim()) {
       newErrors.reason = 'נא להזין סיבת פנייה';
       valid = false;
-    } else if (formData.reason.trim().length < 5) {
+    } else if (reason.trim().length < 5) {
       newErrors.reason = 'סיבת הפנייה חייבת להכיל לפחות 5 תווים';
       valid = false;
     }
 
     setErrors(newErrors);
-    return valid;
-  };
-
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
     
-    if (validateForm()) {
-      setIsSubmitting(true);
-      
-      // Simulate API call
-      setTimeout(() => {
+    if (!valid) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    // Server data object
+    const serverData = {
+      name: name,
+      phone: phone,
+      email: "", // Not required in this form but included in the API structure
+      reason: reason,
+      reciver: reciver
+    };
+
+    try {
+      // Send to server
+      const serverResponse = await fetch(serverUrl, {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(serverData)
+      });
+
+      if (serverResponse.ok) {
         setIsSubmitting(false);
         setSubmitted(true);
         
         // Reset form after successful submission
         setTimeout(() => {
-          setFormData({
-            fullName: '',
-            phone: '',
-            reason: ''
-          });
+          fullNameRef.current.value = "";
+          phoneRef.current.value = "";
+          reasonRef.current.value = "";
           setSubmitted(false);
         }, 3000);
-      }, 1500);
+      } else {
+        throw new Error('Failed to submit form');
+      }
+    } catch (error) {
+      alert("התרחשה שגיאה, אנא נסו שוב מאוחר יותר");
+      console.error('Error submitting form:', error);
+      setIsSubmitting(false);
     }
   };
 
@@ -115,10 +124,9 @@ const FormScreen = () => {
               id="fullName"
               name="fullName"
               className={`${styles.input} ${errors.fullName ? styles.inputError : ''}`}
-              value={formData.fullName}
-              onChange={handleChange}
               placeholder="השם המלא שלך"
               disabled={isSubmitting || submitted}
+              ref={fullNameRef}
             />
             {errors.fullName && <p className={styles.errorText}>{errors.fullName}</p>}
           </div>
@@ -130,10 +138,9 @@ const FormScreen = () => {
               id="phone"
               name="phone"
               className={`${styles.input} ${errors.phone ? styles.inputError : ''}`}
-              value={formData.phone}
-              onChange={handleChange}
               placeholder="050-0000000"
               disabled={isSubmitting || submitted}
+              ref={phoneRef}
             />
             {errors.phone && <p className={styles.errorText}>{errors.phone}</p>}
           </div>
@@ -144,11 +151,10 @@ const FormScreen = () => {
               id="reason"
               name="reason"
               className={`${styles.textarea} ${errors.reason ? styles.inputError : ''}`}
-              value={formData.reason}
-              onChange={handleChange}
               placeholder="ספרו לי במה אוכל לעזור לכם"
               rows={4}
               disabled={isSubmitting || submitted}
+              ref={reasonRef}
             />
             {errors.reason && <p className={styles.errorText}>{errors.reason}</p>}
           </div>

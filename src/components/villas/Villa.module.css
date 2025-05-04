@@ -106,24 +106,28 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
+  /* Updated navigation button styles with glass effect */
   .navButton {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.9); /* White background */
+    background-color: rgba(255, 255, 255, 0.15); /* Much more transparent background */
     padding: 0.75rem;
     border-radius: 50%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25), inset 0 0 6px rgba(200, 200, 200, 0.5); /* Outer shadow + light gray inner shadow */
-    border: 1px solid rgba(255, 255, 255, 0.95); /* Subtle white border */
-    color: rgba(205, 165, 0, 0.85); /* Gold color for the icon */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    border: 1px solid rgba(255, 255, 255, 0.25); /* More subtle border */
+    color: rgba(255, 215, 0, 0.9); /* Brighter gold color for better visibility */
     transition: all 0.3s ease;
+    backdrop-filter: blur(5px); /* Glass effect */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
   }
   
   .navButton:hover {
-    background-color: rgba(255, 255, 255, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 0 8px rgba(200, 200, 200, 0.7);
-    color: rgba(205, 165, 0, 1);
+    background-color: rgba(255, 255, 255, 0.25); /* Slightly more visible on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    color: rgba(255, 215, 0, 1); /* Full brightness on hover */
     transform: translateY(-50%) scale(1.05);
+    border-color: rgba(255, 215, 0, 0.4); /* Gold border on hover */
   }
   
   .prevButton {
@@ -199,12 +203,14 @@
       .secondScreenContainer {
           padding: 8% 0;
       }
-      /* Enhanced arrow buttons visibility */
+      /* Updated glass effect buttons for mobile */
       .navButton {
           padding: 0.6rem;
-          background-color: rgba(255, 255, 255, 0.95);
-          border: 1px solid rgba(255, 255, 255, 1);
-          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), inset 0 0 6px rgba(200, 200, 200, 0.5);
+          background-color: rgba(255, 255, 255, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
       }
       .prevButton {
           left: -1.5rem; /* Adjusted position */
@@ -248,12 +254,14 @@
       .secondScreenContainer {
           padding: 8% 0;
       }
-      /* Enhanced arrow buttons visibility */
+      /* Updated glass effect buttons for mobile */
       .navButton {
           padding: 0.6rem;
-          background-color: rgba(255, 255, 255, 0.95);
-          border: 1px solid rgba(255, 255, 255, 1);
-          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4), inset 0 0 6px rgba(200, 200, 200, 0.5);
+          background-color: rgba(255, 255, 255, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
       }
       .prevButton {
           left: -1.4rem; /* Adjusted position */
@@ -297,12 +305,14 @@
       .secondScreenContainer {
           padding: 6% 0;
       }
-      /* Enhanced arrow buttons visibility */
+      /* Updated glass effect buttons */
       .navButton {
           padding: 0.6rem;
-          background-color: rgba(255, 255, 255, 0.9);
-          border: 1px solid rgba(255, 255, 255, 0.95);
-          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), inset 0 0 6px rgba(200, 200, 200, 0.5);
+          background-color: rgba(255, 255, 255, 0.18);
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
       }
       .prevButton {
           left: -1.6rem; /* Position much further out */
@@ -342,12 +352,14 @@
       .secondScreenContainer {
           padding: 6% 0;
       }
-      /* Enhanced arrow buttons visibility */
+      /* Updated glass effect buttons */
       .navButton {
           padding: 0.65rem;
-          background-color: rgba(255, 255, 255, 0.85);
-          border: 1px solid rgba(255, 255, 255, 0.9);
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), inset 0 0 6px rgba(200, 200, 200, 0.5);
+          background-color: rgba(255, 255, 255, 0.15);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
       }
       .prevButton {
           left: -1.3rem; /* Position further out */
@@ -382,9 +394,12 @@
       .secondScreenContainer {
           padding: 5% 0;
       }
-      /* Slightly enhanced buttons */
+      /* Updated glass effect buttons */
       .navButton {
-          background-color: rgba(255, 215, 0, 0.3);
+          background-color: rgba(255, 215, 0, 0.15);
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+          border: 1px solid rgba(255, 215, 0, 0.2);
       }
   }
   
