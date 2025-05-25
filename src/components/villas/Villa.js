@@ -73,7 +73,7 @@ const GalleryComponent = ({ title, description, images }) => {
         </div>
       </div>
     </div>
-    <Button text="אהבתי! בואי נדבר" message="היי סיון הגעתי מהדף, ראיתי עבודות שלך ואשמח שנדבר על..."/>
+    <Button text="אהבתי! בואו נדבר" message="היי סיון הגעתי מהדף, ראיתי עבודות שלך ואשמח שנדבר על..."/>
 </>
 };
 

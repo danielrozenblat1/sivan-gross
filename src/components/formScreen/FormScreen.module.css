@@ -23,7 +23,7 @@
   text-align: center;
   direction: rtl;
   line-height: 1.2;
-  background: linear-gradient(135deg, #d4a017 30%, #cc9900 50%, #b8860b 90%);
+ background: linear-gradient(135deg, #f5d5aa 30%, #f0dcc0 50%, #ead3b3 70%, #f7e1b8 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
@@ -127,41 +127,43 @@
   margin-top: 0.5rem;
   border: none;
   border-radius: 0.5rem;
-  background: linear-gradient(135deg, #d4a017 30%, #cc9900 50%, #b8860b 90%);
+  background: linear-gradient(135deg, #735a4b 30%, #c0a091 50%, #644c40 90%);
   color: #fff;
   font-family: 'Bona', sans-serif;
   font-size: 1.1rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  box-shadow: 0 4px 10px rgba(184, 134, 11, 0.3), 
-              0 0 0 1px rgba(255, 215, 0, 0.3),
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 10px rgba(166, 145, 113, 0.25), 
+              0 0 0 1px rgba(201, 179, 140, 0.2),
               inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .submitButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(184, 134, 11, 0.4), 
-              0 0 0 1px rgba(255, 215, 0, 0.4),
+  background: linear-gradient(135deg, #735a4b 30%, #c0a091), 50%, #644c40 90%);
+  box-shadow: 0 6px 15px rgba(166, 145, 113, 0.35), 
+              0 0 0 1px rgba(201, 179, 140, 0.3),
               inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .submitButton:active {
   transform: translateY(0);
-  box-shadow: 0 2px 5px rgba(184, 134, 11, 0.3), 
-              0 0 0 1px rgba(255, 215, 0, 0.3),
-              inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #bfaa82 30%, #b29b70 50%, #a58e63 90%);
+  box-shadow: 0 2px 5px rgba(166, 145, 113, 0.2), 
+              0 0 0 1px rgba(201, 179, 140, 0.2),
+              inset 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .submitting {
-  background: linear-gradient(135deg, #b8860b 30%, #a07c05 50%, #7c6105 90%);
+  background: linear-gradient(135deg, #b5a078 30%, #a69171 50%, #988569 90%);
   cursor: not-allowed;
   opacity: 0.9;
 }
 
 .submitted {
-  background: linear-gradient(135deg, #2e8b57 30%, #3cb371 50%, #2e8b57 90%);
+  background: linear-gradient(135deg, #a3967b 30%, #ab9f82 50%, #a3967b 90%);
   cursor: default;
 }
 

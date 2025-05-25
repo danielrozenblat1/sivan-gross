@@ -6,7 +6,9 @@ import FirstScreen from './screens/FirstScreen';
 import image1 from "./images/סיון גרוס תמונת פתיחה 1.png"
 
 import image3 from "./images/סוויטה לבדיקה 10.png"
-
+import open1 from "./images/סיון תמונות פתיחה 1.png"
+import open2 from "./images/סיון תמונות פתיחה 2.png"
+import open3 from "./images/סיון תמונות פתיחה 3.png"
 import image4 from "./images/סוויטה להצגה מסך ראשוני 4.png"
 
 import image6 from "./images/סיון גרוס תמונת פתיחה 2.png"
@@ -17,12 +19,14 @@ import FifthScreen from './screens/FifthScreen';
 import { useEffect } from 'react';
 import ByMe from './components/ByMe/ByMe';
 import ParralexScreen from './screens/ParralexScreen';
+import Recommendations from './components/recommends/Recommends';
+import SocialLinks from './components/social/Social';
 // מערך תמונות מסוגנן בפורמט שהקומפוננט מצפה לקבל
 const images = [
-  { src: image4, },
-  { src: image1, }, 
+  { src: open1, },
+  { src: open2, }, 
 
-  { src: image6, },
+  { src: open3, },
 
  
 ];
@@ -36,6 +40,7 @@ function App() {
     <TextFillEffect/>
 
     <AboutMe/>
+    <Recommendations/>
     <SecondScreen/>
     <ForthScreen/>
 

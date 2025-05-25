@@ -1,12 +1,13 @@
 .faqItem {
   margin-bottom: 1rem;
-  border: 1px solid #d4af37; /* שונה מ-#d2c0b2 לצבע זהב */
-  border-radius: 8px;
+  border: 1px solid rgba(166, 145, 113, 0.3);
+  border-radius: 0.5rem;
   overflow: hidden;
   width: 500px;
   margin: 15px auto;
   direction: rtl;
-  box-shadow: 0 2px 4px rgba(212, 175, 55, 0.2); /* שונה לגוון זהב תואם */
+  box-shadow: 0 4px 10px rgba(166, 145, 113, 0.15), 
+              0 0 0 1px rgba(201, 179, 140, 0.1);
   text-decoration: none;
 }
 
@@ -16,31 +17,34 @@
   align-items: center;
   width: 100%;
   padding: 1rem;
-  background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(248,244,229,0.9)); /* שונה מ-#f8f4f1 לגרדיאנט */
+  background: linear-gradient(135deg, #735a4b 30%, #c0a091 50%, #644c40 90%);
   border: none;
   text-decoration: none;
-  color: #333; /* שונה מ-#5a4a3f לשחור בהיר יותר */
+  color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .questionButton:hover {
-  background: linear-gradient(to right, rgba(255,255,255,1), rgba(248,244,229,1)); /* שונה מ-#f1e9e4 לגרדיאנט במצב hover */
+  background: linear-gradient(135deg, #644c40 30%, #c0a091 50%, #735a4b 90%);
 }
 
 .questionText {
-  font-family: 'AssistantR', sans-serif;
-  font-size: 1.2rem;
+  font-family: 'Bona', 'AssistantR', sans-serif;
+  font-size: 1.1rem;
   text-align: center;
-  color: #333; /* שונה מ-#5a4a3f לשחור בהיר יותר */
+  color: #fff;
   direction: rtl;
   flex-grow: 1;
+  font-weight: 500;
 }
 
 .iconWrapper {
   width: 24px;
   flex-shrink: 0;
-  color: #d4af37; /* שונה מ-#b3967f לצבע זהב */
+  color: #fff;
   text-decoration: none;
 }
 
@@ -53,16 +57,17 @@
 .answerContainer {
   overflow: hidden;
   transition: height 0.3s ease;
-  background-color: #fff; /* שונה מ-#fdfbf9 ללבן */
+  background-color: #fff;
   margin: auto;
   direction: rtl;
+  border-top: 1px solid rgba(166, 145, 113, 0.2);
 }
 
 .answerText {
   font-family: 'AssistantR', sans-serif;
   font-size: 1.05rem;
   padding: 1rem;
-  color: #333; /* שונה מ-#5a4a3f לשחור בהיר יותר */
+  color: #735a4b;
   justify-content: center;
   text-align: center;
   margin: auto;
@@ -70,10 +75,10 @@
 
 /* Accent for links or important text within answers */
 .answerText a, .answerText strong {
-  color: #d4af37; /* שונה מ-#b3967f לצבע זהב */
+  color: #c0a091;
 }
 
-/* Responsive styles remain unchanged */
+/* Responsive styles */
 @media (max-width: 350px) {
   .faqItem {
     width: 280px;
@@ -110,11 +115,16 @@
   }
 }
 
-/* חשוב להוסיף את זה עבור פונקציונליות פתיחה וסגירה */
+/* פונקציונליות פתיחה וסגירה */
 .active .answerContainer {
   height: auto;
 }
 
 .active .icon {
   transform: rotate(180deg);
+}
+
+/* הגדרה נוספת למצב אקטיבי */
+.active .questionButton {
+  background: linear-gradient(135deg, #644c40 30%, #c0a091 50%, #735a4b 90%);
 }

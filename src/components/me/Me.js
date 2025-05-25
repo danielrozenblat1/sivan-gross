@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Me.module.css';
-import sivan from "../../images/סיון גרוס תדמית.png";
+import sivan from "../../images/סיון תדמית.jpeg";
 import ScrollReveal from 'scrollreveal';
 
 const AboutMe = () => {
@@ -36,7 +36,7 @@ const AboutMe = () => {
   return (
     <section ref={containerRef} className={styles.section} id="מי-אני">
       <h2 className={`${styles.heading} ${styles.revealItem}`}>
-        <span className={styles.headingInner}>בואו נכיר</span>
+        <span className={styles.headingInner}>מי אני</span>
         <span className={styles.headingEnglish}>About Me</span>
       </h2>
       
@@ -47,21 +47,21 @@ const AboutMe = () => {
         </div>
         
         <div className={styles.content}>
-          <h3 className={`${styles.name} ${styles.revealItem}`}>סיון גרוס</h3>
+          <h3 className={`${styles.name} ${styles.revealItem}`}>נעים להכיר, אני סיון גרוס</h3>
           
           <p className={`${styles.quote} ${styles.revealItem}`}>
-          "אני לא עוזבת אותך מרגע התכנון עד שהאגרטל נמצא בבית" 
+            "אני לא רק מעצבת פנים - אני חיה ונושמת עיצוב"
           </p>
           
           <div className={`${styles.textBlock} ${styles.revealItem}`}>
             <p className={styles.paragraph}>
-              מאז שאני זוכרת את עצמי, אבא שלי היה ההשראה הכי גדולה שלי. הייתי מסתכלת עליו הופך שרטוטים לבתים אמיתיים ופשוט נדלקתי! איך דף נייר יכול להפוך למשהו שאנשים חיים בו? זה התחיל כסקרנות של ילדה קטנה, והיום זה הדבר שאני הכי אוהבת לעשות. בשבילי, כל בית זה סיפור חדש לגמרי, עולם שלם שמחכה שיגלו אותו.
+              אני יוצרת עולמות, בתים ועסקים עם אופי ונשמה, נוכחות וסטייל מדויק שלא רואים בכל מקום! כאלה שעושים "וואו" ולא דומים לשום דבר שראיתם.
             </p>
             <p className={styles.paragraph}>
-              העיצוב שלי עומד על שלושה דברים חשובים: שהבית ישקף באמת מי אתם, שהוא יהיה נוח ופרקטי לחיים האמיתיים (כי בסוף אתם צריכים לחיות שם!), ושהוא יהיה מקום שפשוט כיף להיות בו. אני מאמינה שעיצוב טוב הוא כזה שברגע שאתם נכנסים הביתה ומדליקים את האור, אתם מרגישים - "וואו, הגעתי הביתה".
+              העיצוב איתי הוא מסע יצירתי, מדויק, ובעיקר – חוויה יחודית ובלתי נשכחת בהתאמה אישית מלאה.
             </p>
             <p className={styles.paragraph}>
-              הכי כיף לי לחבר בין עולמות - לקחת את הסגנון של אחד ושל השני ולמצוא את הקסם באמצע. לשלב בין חלומות גדולים לתקציב שאפשר לעמוד בו, ולהפוך חללים מאתגרים למשהו מדהים. אני פשוט חיה את זה! הבית שאעצב לכם יהיה שלכם ורק שלכם. אין אצלי העתק-הדבק.
+              בלי שבלונות, בלי פחד מצבע או חומר. רק תעוזה, רגש והרבה תשוקה.
             </p>
           </div>
         </div>

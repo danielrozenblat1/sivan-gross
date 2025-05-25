@@ -8,6 +8,7 @@ import { Home, Shield, Brain, FileStack } from 'lucide-react';
 import Button from '../components/button/Button';
 import ParralexScreen from './ParralexScreen';
 import FifthScreen from './FifthScreen';
+import SocialLinks from '../components/social/Social';
 
 // Heebo פונט משתמש ב-HeeboR כגרסה רגילה של הפונט
 
@@ -209,6 +210,7 @@ const ForthScreen = () => {
 
                 <ParralexScreen/>
                 <FifthScreen/>
+                <SocialLinks/>
             </div>
         </>
     );
