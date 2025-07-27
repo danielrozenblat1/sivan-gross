@@ -1,0 +1,1068 @@
+/* Import luxury fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables for luxury design with dark colors for light background */
+:root {
+  --primary-dark: #1A1A1A;
+  --secondary-dark: #2D2D2D;
+  --accent-dark: #404040;
+  --warm-dark: #333333;
+  --soft-dark: #4A4A4A;
+  --text-shimmer: #1A1A1A;
+  --deep-charcoal: #000000;
+  --warm-gray: #2D2D2D;
+  --light-gray: #F8F8F8;
+  --glass-dark: rgba(0, 0, 0, 0.08);
+  --glass-border-dark: rgba(0, 0, 0, 0.12);
+  --shadow-luxury: 0 20px 40px rgba(0, 0, 0, 0.3);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --dark-glow: rgba(26, 26, 26, 0.15);
+  --dark-soft: rgba(26, 26, 26, 0.08);
+}
+
+/* Main carousel container - רווחים וורטיקליים מוגדלים */
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  overflow-x: hidden; /* Explicitly prevent horizontal overflow */
+  /* רקע שקוף לחלוטין */
+  background: transparent;
+  font-family: 'AssistantR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  box-sizing: border-box; /* Ensure padding is included in width calculations */
+}
+
+/* הסרנו את כל האפקטים הגרפיים */
+.backgroundGradient {
+  display: none;
+}
+
+.liquidOverlay {
+  display: none;
+}
+
+/* Content wrapper */
+.carouselContent {
+  width: 100%;
+  max-width: 1400px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Header section - Right aligned minimal */
+.carouselHeader {
+  text-align: right;
+  margin-bottom: 2rem; /* הגדלנו מ-3rem ל-4rem */
+  position: relative;
+  padding-right: 2rem;
+}
+
+/* Project number styling - עיצוב מחודש עם פונט יוקרתי וגודל גדול יותר */
+.projectNumber {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  padding: 1.5rem 2.5rem; /* הגדלנו משמעותית */
+  font-family: 'Cormorant Garamond', serif; /* פונט יוקרתי חדש */
+  font-size: 2.5rem; /* הגדלנו משמעותית מ-1.1rem */
+  font-weight: 600;
+  color: var(--text-shimmer);
+  letter-spacing: 3px; /* הגדלנו את המרווח בין האותיות */
+  margin-bottom: 2.5rem; /* הגדלנו מ-1.5rem */
+  position: relative;
+  overflow: hidden;
+  text-shadow: none;
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    0 3px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.projectNumber::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 2.5s ease-in-out;
+}
+
+.projectNumber:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 12px 25px rgba(0, 0, 0, 0.12),
+    0 5px 12px rgba(0, 0, 0, 0.08);
+}
+
+.projectNumber:hover::before {
+  left: 100%;
+}
+
+.titleGlass {
+  background: none;
+  backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 1.5rem; /* הגדלנו מ-1rem */
+  position: relative;
+  overflow: visible;
+}
+
+.carouselTitle {
+  font-family: 'Assistant', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+      background: linear-gradient(135deg, #efcaaa 30%, #dbb895 50%, #ead3b3 70%, #f0dcc0 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.descriptionGlass {
+  background: none;
+  backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  max-width: none;
+  margin: 0;
+}
+
+.carouselDescription {
+  font-family: 'AssistantR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.2rem;
+      background: linear-gradient(135deg, #efcaaa 30%, #dbb895 50%, #ead3b3 70%, #f0dcc0 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  line-height: 1.6;
+  font-weight: 400;
+  text-align: right;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-bottom: 1.5rem; /* הגדלנו מ-1rem */
+}
+
+/* Main image container */
+.mainImageContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem; /* הגדלנו מ-2rem */
+  min-height: 400px;
+}
+
+/* Navigation buttons - Luxury and classic design */
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: 0;
+  opacity: 0.7;
+  outline: none;
+}
+
+.navButton:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navButton:hover {
+  opacity: 1;
+}
+
+.navButtonLeft {
+  right: calc(100% + 2rem);
+}
+
+.navButtonRight {
+  left: calc(100% + 2rem);
+}
+
+.buttonGlass {
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333333;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 6px 15px rgba(0, 0, 0, 0.3),
+    0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.buttonGlass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 30%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+}
+
+.navButton:hover .buttonGlass::before {
+  opacity: 1;
+}
+
+.navButton:hover .buttonGlass {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.18) 100%);
+  border-color: rgba(0, 0, 0, 0.5);
+  transform: scale(1.12);
+  backdrop-filter: blur(30px) saturate(220%);
+  -webkit-backdrop-filter: blur(30px) saturate(220%);
+  box-shadow: 
+    0 20px 55px rgba(0, 0, 0, 0.35),
+    0 8px 25px rgba(0, 0, 0, 0.2),
+    0 0 0 2px rgba(0, 0, 0, 0.4),
+    inset 0 3px 6px rgba(0, 0, 0, 0.5),
+    inset 0 -3px 3px rgba(255, 255, 255, 0.2);
+}
+
+/* הסרת אפקט הלחיצה שגורם לתזוזה */
+.navButton:active .buttonGlass {
+  /* הסרנו את transform: scale(0.95); */
+}
+
+/* Main image wrapper - עם תמיכה בגרירה */
+.mainImageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mainImageWrapper:hover {
+  transform: scale(1.02);
+}
+
+.mainImageWrapper.transitioning {
+  opacity: 0.8;
+}
+
+.mainImageWrapper.dragging {
+  cursor: grabbing;
+  transform: scale(1.01);
+}
+
+.imageGlassFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainImage {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+  user-select: none;
+  -webkit-user-drag: none;
+  display: block;
+}
+
+.imageReflection {
+  display: none;
+}
+
+.imageBorder {
+  display: none;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Thumbnail strip with elegant counter - thumbnails גדולים יותר */
+.thumbnailStrip {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem; /* הגדלנו מ-1.5rem */
+  width: 100%;
+  position: relative;
+}
+
+.thumbnailGlassContainer {
+  background: rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 25px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 85%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Elegant counter positioned on thumbnail container */
+.imageCounter {
+  position: absolute;
+  top: -20px;
+  right: 25px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.6) 100%);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  padding: 0.7rem 1.8rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-shimmer);
+  z-index: 15;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.7);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.counterNumber, .counterTotal {
+  color: var(--text-shimmer);
+  font-weight: 600;
+  font-size: 1.2rem;
+  font-family: 'Playfair Display', serif;
+  font-style: normal;
+}
+
+.counterSeparator {
+  margin: 0 0.8rem;
+  opacity: 0.7;
+  color: var(--accent-dark);
+  font-weight: 300;
+  font-size: 1rem;
+  font-family: 'Playfair Display', serif;
+  font-style: normal;
+}
+
+.thumbnailContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+
+.thumbnailContainer:active {
+  cursor: grabbing;
+}
+
+.thumbnailContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.thumbnail {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+  flex-shrink: 0;
+  outline: none;
+}
+
+.thumbnail:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.thumbnail.active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.thumbnailGlass {
+  width: 90px; /* הגדלנו מ-70px */
+  height: 65px; /* הגדלנו מ-50px */
+  background: rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(6px);
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.thumbnail:hover .thumbnailGlass {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.thumbnail.active .thumbnailGlass {
+  background: var(--dark-soft);
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.thumbnailOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.3s ease;
+}
+
+.thumbnailBorder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid var(--accent-dark);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.thumbnail.active .thumbnailBorder {
+  opacity: 1;
+}
+
+/* Progress indicators - Properly spaced */
+.progressIndicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem; /* הגדלנו מ-2rem */
+}
+
+.progressGlass {
+  background: none;
+  backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  padding: 0.8rem 0;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.progressDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+ background: rgba(255, 236, 230, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+}
+
+.progressDot:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.progressDot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--primary-dark);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+
+.progressDot.active::before {
+  width: 100%;
+  height: 100%;
+}
+
+.progressDot:hover {
+  background: var(--dark-soft);
+  transform: scale(1.2);
+}
+
+.dotInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* Floating particles - הוסרו לחלוטין */
+.particles {
+  display: none;
+}
+
+.particle {
+  display: none;
+}
+
+.particle1 { top: 20%; left: 10%; animation-delay: 0s; }
+.particle2 { top: 80%; left: 20%; animation-delay: 1s; }
+.particle3 { top: 40%; left: 80%; animation-delay: 2s; }
+.particle4 { top: 60%; left: 90%; animation-delay: 3s; }
+.particle5 { top: 10%; left: 70%; animation-delay: 4s; }
+.particle6 { top: 90%; left: 50%; animation-delay: 5s; }
+.particle7 { top: 30%; left: 30%; animation-delay: 0.5s; }
+.particle8 { top: 70%; left: 60%; animation-delay: 1.5s; }
+.particle9 { top: 50%; left: 15%; animation-delay: 2.5s; }
+.particle10 { top: 25%; left: 85%; animation-delay: 3.5s; }
+.particle11 { top: 85%; left: 75%; animation-delay: 4.5s; }
+.particle12 { top: 15%; left: 40%; animation-delay: 5.5s; }
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px);
+    opacity: 0.1;
+  }
+  50% { 
+    transform: translateY(-15px);
+    opacity: 0.3;
+  }
+}
+
+/* Fullscreen Modal */
+.fullscreenModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  touch-action: pan-y pinch-zoom;
+}
+
+.fullscreenContent {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  max-width: 1200px;
+  max-height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: pan-y pinch-zoom;
+}
+
+.fullscreenImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: pan-y pinch-zoom;
+  transition: transform 0.3s ease;
+}
+
+.fullscreenNav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.fullscreenNav:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.fullscreenNavLeft {
+  left: 20px;
+}
+
+.fullscreenNavRight {
+  right: 20px;
+}
+
+.fullscreenClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.fullscreenClose:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+}
+
+.fullscreenCounter {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 0.8rem 2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .carouselContainer {
+    padding: 4rem 1rem; /* הגדלנו מ-2rem ל-4rem */
+  }
+
+  .carouselHeader {
+    text-align: center;
+    padding-right: 0;
+    margin-bottom: 0.5rem; /* הגדלנו מ-2rem */
+  }
+
+  .projectNumber {
+    font-size: 2rem; /* הקטנו קצת למובייל */
+    padding: 1.2rem 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .carouselDescription {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 350px;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .mainImageContainer {
+    margin-bottom: 2rem; /* הגדלנו מ-1.5rem */
+    min-height: 300px;
+  }
+
+  .navButtonLeft, .navButtonRight {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .navButtonLeft {
+    right: auto;
+    left: 1rem;
+  }
+
+  .navButtonRight {
+    left: auto;
+    right: 1rem;
+  }
+
+  .buttonGlass {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 12px 35px rgba(0, 0, 0, 0.35),
+      0 5px 18px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(0, 0, 0, 0.25),
+      inset 0 2px 3px rgba(0, 0, 0, 0.35),
+      inset 0 -2px 2px rgba(255, 255, 255, 0.15);
+  }
+
+  .navButton:hover .buttonGlass {
+    transform: scale(1.08);
+    backdrop-filter: blur(26px) saturate(210%);
+    -webkit-backdrop-filter: blur(26px) saturate(210%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0.28) 50%, rgba(0, 0, 0, 0.2) 100%);
+    border-color: rgba(224, 224, 224, 0.55);
+    box-shadow: 
+      0 16px 45px rgba(0, 0, 0, 0.4),
+      0 7px 22px rgba(0, 0, 0, 0.2),
+      0 0 0 2px rgba(0, 0, 0, 0.35),
+      inset 0 3px 5px rgba(0, 0, 0, 0.45),
+      inset 0 -3px 3px rgba(255, 255, 255, 0.2);
+  }
+
+  .mainImageWrapper {
+    max-width: 100%;
+  }
+
+  .imageGlassFrame {
+    border-radius: 10px;
+  }
+
+  .mainImage {
+    border-radius: 10px;
+  }
+
+  .thumbnailContainer {
+    gap: 0.8rem;
+    padding: 0.3rem;
+  }
+
+  .thumbnailGlass {
+    width: 75px; /* מ-60px */
+    height: 55px; /* מ-42px */
+  }
+
+  .carouselTitle {
+    font-size: 2.2rem;
+  }
+
+  .progressGlass {
+    padding: 0.5rem 0;
+    gap: 0.3rem;
+  }
+
+  .progressDot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .imageCounter {
+    top: -15px;
+    right: 20px;
+    padding: 0.6rem 1.4rem;
+    font-size: 1rem;
+    letter-spacing: 1.2px;
+    z-index: 20;
+  }
+
+  .counterNumber, .counterTotal {
+    font-size: 1.1rem;
+  }
+
+  .counterSeparator {
+    margin: 0 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .thumbnailGlassContainer {
+    padding: 0.8rem;
+    border-radius: 20px;
+  }
+
+  /* Fullscreen mobile adjustments */
+  .fullscreenContent {
+    width: 95%;
+    height: 95%;
+  }
+  
+  .fullscreenNav {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .fullscreenNavLeft {
+    left: 15px;
+  }
+  
+  .fullscreenNavRight {
+    right: 15px;
+  }
+  
+  .fullscreenClose {
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .fullscreenCounter {
+    bottom: 20px;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carouselContainer {
+    padding: 3rem 1rem; /* הוספנו רווח גם כאן */
+  }
+
+  .carouselTitle {
+    font-size: 1.6rem;
+  }
+
+  .carouselDescription {
+    font-size: 1rem;
+    max-width: 400px;
+    margin-bottom: 0; /* הגדלנו מ-0.6rem */
+  }
+
+  .projectNumber {
+    font-size: 1.8rem; /* הקטנו עוד קצת למסכים קטנים */
+    padding: 1rem 1.8rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1.5px;
+  }
+
+  .mainImageWrapper {
+    max-width: 100%;
+    height: 250px;
+  }
+
+  .mainImageContainer {
+    min-height: 250px;
+    margin-bottom: 0.5rem; /* הגדלנו מ-1rem */
+  }
+
+  .imageGlassFrame {
+    border-radius: 8px;
+  }
+
+  .mainImage {
+    border-radius: 8px;
+  }
+
+  .buttonGlass {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: 
+      0 8px 25px rgba(0, 0, 0, 0.32),
+      0 4px 15px rgba(0, 0, 0, 0.12),
+      0 0 0 1px rgba(0, 0, 0, 0.22),
+      inset 0 2px 3px rgba(0, 0, 0, 0.3),
+      inset 0 -2px 2px rgba(255, 255, 255, 0.12);
+  }
+
+  .navButton:hover .buttonGlass {
+    transform: scale(1.06);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.18) 100%);
+    border-color: rgba(242, 242, 242, 0.5);
+    box-shadow: 
+      0 12px 35px rgba(0, 0, 0, 0.38),
+      0 6px 20px rgba(0, 0, 0, 0.18),
+      0 0 0 2px rgba(0, 0, 0, 0.32),
+      inset 0 3px 5px rgba(0, 0, 0, 0.4),
+      inset 0 -3px 3px rgba(255, 255, 255, 0.18);
+  }
+
+  .imageCounter {
+    top: -12px;
+    right: 15px;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    z-index: 25;
+  }
+
+  .counterNumber, .counterTotal {
+    font-size: 1rem;
+  }
+
+  .counterSeparator {
+    margin: 0 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .thumbnailGlass {
+    width: 65px; /* מ-50px */
+    height: 48px; /* מ-36px */
+  }
+
+  .thumbnailGlassContainer {
+    padding: 0.6rem;
+    border-radius: 18px;
+  }
+
+  .progressGlass {
+    padding: 0.4rem 0;
+    gap: 0.25rem;
+  }
+
+  .progressDot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .progressIndicators {
+    margin-top: 1rem; /* הגדלנו גם כאן */
+  }
+}
+
+/* Enhanced focus states for accessibility */
+.navButton:focus,
+.thumbnail:focus,
+.progressDot:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--dark-soft);
+  border-radius: 50%;
+}
+
+/* RTL support */
+[dir="rtl"] .navButtonLeft {
+  left: calc(100% + 2rem);
+  right: auto;
+}
+
+[dir="rtl"] .navButtonRight {
+  right: calc(100% + 2rem);
+  left: auto;
+}
+
+[dir="rtl"] .imageCounter {
+  right: auto;
+  left: 25px;
+}
+
+[dir="rtl"] .carouselHeader {
+  text-align: left;
+  padding-right: 0;
+  padding-left: 2rem;
+}
+
+[dir="rtl"] .carouselDescription {
+  text-align: left;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .carouselHeader {
+    text-align: center;
+    padding-left: 0;
+  }
+  
+  [dir="rtl"] .carouselDescription {
+    text-align: center;
+    margin: 0 auto 1.2rem auto;
+  }
+}
+
+/* Loading animation */
+@keyframes luxuryLoad {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.carouselContent > * {
+  animation: luxuryLoad 0.6s ease-out forwards;
+}
+
+.carouselHeader { animation-delay: 0.1s; }
+.mainImageContainer { animation-delay: 0.2s; }
+.thumbnailStrip { animation-delay: 0.3s; }
+.progressIndicators { animation-delay: 0.4s; }
+
+/* No images message styling */
+.noImagesMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: var(--primary-dark);
+  font-size: 1.2rem;
+  opacity: 0.7;
+}

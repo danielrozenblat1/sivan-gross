@@ -21,6 +21,7 @@ import ByMe from './components/ByMe/ByMe';
 import ParralexScreen from './screens/ParralexScreen';
 import Recommendations from './components/recommends/Recommends';
 import SocialLinks from './components/social/Social';
+import SivanNew from './screens/SivanProjects';
 // מערך תמונות מסוגנן בפורמט שהקומפוננט מצפה לקבל
 const images = [
   { src: open1, },
@@ -37,11 +38,12 @@ function App() {
   }, []);
   return <>
     <FirstScreen images={images}/>
-    <TextFillEffect/>
+    {/* <TextFillEffect/> */}
 
     <AboutMe/>
     <Recommendations/>
-    <SecondScreen/>
+    <SivanNew/>
+    {/* <SecondScreen/> */}
     <ForthScreen/>
 
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './FirstScreen.module.css';
-import logoImage from "../images/סיון גרוס אייקון.png";
+import logoImage from "../images/סיון לוגו חדש.png";
 import Loader from '../components/loader/Loader';
 
 const FirstScreen = ({ images }) => {
@@ -110,7 +110,7 @@ const FirstScreen = ({ images }) => {
             className={styles.logoImage}
           />
         </div>
-        <h1 className={styles.englishTitle}>SIVAN GROSS | INTERIOR DESIGN</h1>
+        {/* <h1 className={styles.englishTitle}>SIVAN GROSS | INTERIOR DESIGN</h1> */}
         {/* <h2 className={styles.hebrewTagline}>עיצוב פנים ואדריכלות</h2> */}
       </div>
       

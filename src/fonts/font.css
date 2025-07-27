@@ -70,3 +70,9 @@
     font-weight:300;
     font-style: normal;
   }
+    @font-face {
+    font-family: 'Eagle';
+    src: url('./EagleLake-Regular.ttf') format('truetype');
+    font-weight:300;
+    font-style: normal;
+  }

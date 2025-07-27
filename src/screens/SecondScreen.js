@@ -104,6 +104,18 @@ import almog8 from "../images/סיון גרוס אחוזת אלמוג 8.png";
 import almog9 from "../images/סיון גרוס אחוזת אלמוג 9.png";
 import almog10 from "../images/סיון גרוס אחוזת אלמוג 10.png";
 
+import newProject1 from "../images/פרוייקט חדש 1.png";
+import newProject2 from "../images/פרוייקט חדש 2.png";
+import newProject3 from "../images/פרוייקט חדש 3.png";
+import newProject4 from "../images/פרוייקט חדש 4.png";
+import newProject5 from "../images/פרוייקט חדש 5.png";
+import newProject6 from "../images/פרוייקט חדש 6.png";
+import newProject7 from "../images/פרוייקט חדש 7.png";
+import newProject8 from "../images/פרוייקט חדש 8.png";
+import newProject9 from "../images/פרוייקט חדש 9.png";
+import newProject10 from "../images/פרוייקט חדש 10.png";
+import newProject11 from "../images/פרוייקט חדש 11.png";
+import newProject12 from "../images/פרוייקט חדש 12.png";
 import GalleryComponent from "../components/villas/Villa";
 import Steps from "../components/steps/Steps";
 import Button from "../components/button/Button";
@@ -220,7 +232,22 @@ const SecondScreen = () => {
     almog9,
     almog10,
   ];
-  
+    const newProject = [
+      newProject6,
+          newProject9,
+    newProject1,
+    newProject2,
+    newProject3,
+    newProject4,
+    newProject5,
+    
+    newProject7,
+    newProject8,
+
+    newProject10,
+        newProject11,
+            newProject12,
+  ];
   return (
     <div className={styles.secondScreenContainer}>
       <div className={styles.titleContainer}>
@@ -228,10 +255,10 @@ const SecondScreen = () => {
         <div className={styles.title}>פרוייקטים</div>
       </div>
       <div className={styles.description}>כשאני מעצבת חלל, אני לא עוצרת ביופי החיצוני, אני יוצרת חוויה- כזו שנכנסים אליה וזוכרים.
-עיצוב טוב לא רק נראה טוב- הוא גורם לך לעצור, להרגיש, לזכור.
+עיצוב טוב לא רק נראה טוב - הוא גורם לך לעצור, להרגיש, לזכור.
 העיצוב שלי הוא תוצאה של הקשבה ותעוזה, דיוק ושילובים שאחרים לא היו מעזים לחשוב עליהם.
 אני לא מאמינה בתבניות, ולא חוזרת על עצמי- כי כל אדם הוא סיפור, וכל חלל צריך לספר אחרת.
-פעם עיצוב היה מןתרות,
+פעם עיצוב היה מותרות,
 היום זו שפה!
 בעיניי עיצוב הוא כלי שמשקף אישיות, ערכים ואמירה!
  ולכן אני עובדת עם אנשים ועסקים שמבינים שעיצוב טוב הוא מעבר לאסתטיקה-
@@ -242,6 +269,7 @@ const SecondScreen = () => {
 בין אם זה בית או עסק- אני באה לעשות קסם.
 עם חיוך, חוצפה טובה וסטייל שאי אפשר להתעלם ממנו.</div>
       <GalleryComponent title="הסוויטה של אושר - סוויטה בצפון הארץ" images={images}/>
+      <GalleryComponent title="פרוייקט חדש" images={newProject}/>
       <GalleryComponent title="סוויטת רילקס" images={images2}/>
       <GalleryComponent title="אחוזת אלמוג" images={almogImages}/>
       {/* <div className={styles.title}>וככה קורה הקסם</div>

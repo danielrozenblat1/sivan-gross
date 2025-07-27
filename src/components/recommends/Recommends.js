@@ -9,16 +9,24 @@ import 'slick-carousel/slick/slick-theme.css';
 import result1 from "../../images/סיון גרוס המלצות 1.png";
 import result2 from "../../images/סיון גרוס המלצות 2.png";
 import result3 from "../../images/סיון גרוס המלצות 3.png";
+import result4 from "../../images/סיון גרוס המלצות 4.png";
+import result5 from "../../images/סיון גרוס המלצות 5.png";
+import Testimonials from '../newRecommends/NewRecommends';
 
 const Recommendations = () => {
   const images = [
-    result1, result2, result3
+        { src: result4 },
+            { src: result5 },
+       { src: result1 },
+    { src: result2 },
+    { src: result3 },
+    
   ];
 
   const sliderSettings = {
     infinite: true,
     speed: 700,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 3500,
     dots: false,
     autoplay: true,
     pauseOnHover: true,
@@ -27,10 +35,7 @@ const Recommendations = () => {
     slidesToScroll: 1,
   };
 
-  const content = images.map((img, index) => ({
-    type: 'image',
-    src: img
-  }));
+
 
   return (
     <div className={styles.secondScreenContainer}>
@@ -39,25 +44,9 @@ const Recommendations = () => {
         <div className={styles.titleEnglish}>Testimonials</div>
       </div>
       <div className={styles.description}>
-        תחליקי בין התמונות
+    גללו כלפי מעלה בין התמונות
       </div>
-      <div className={styles.sliderContainer}>
-        <Slider {...sliderSettings}>
-          {content.map((item, index) => (
-            <div key={index} itemScope itemType="http://schema.org/Review">
-              {item.type === 'image' && (
-                <img
-                  src={item.src}
-                  className={styles.image1}
-                  alt={`לקוחה ממליצה מספר ${index + 1}`}
-                  itemProp="image"
-                />
-              )}
-              <meta itemProp="datePublished" content={new Date().toISOString()} />
-            </div>
-          ))}
-        </Slider>
-      </div>
+   <Testimonials testimonialImages={images}/>
       <Button text="סיון, בואי נדבר!" />
     </div>
   );

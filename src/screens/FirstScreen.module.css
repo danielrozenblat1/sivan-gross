@@ -101,7 +101,7 @@
 
 /* Logo container and image styles */
 .logoContainer {
-  width: 100px;
+  width: 250px;
   overflow: hidden;
   border-radius: 8px;
 }
@@ -119,10 +119,10 @@
 }
 
 .englishTitle {
-  width: 95%;
+  width: 100%;
   color: white;
-  font-family: 'Stardos';
-  font-size: 1.8rem;
+  font-family: 'Eagle';
+  font-size: 1.7rem;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -289,7 +289,7 @@
   }
   
   .logoContainer {
-    width: 60px;
+width: 200px;
   }
   
   .englishTitle {
@@ -360,12 +360,12 @@
   }
   
   .logoContainer {
-    width: 70px;
+  width: 220px;
   }
   
   .englishTitle {
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   
   .hebrewTagline {
@@ -424,7 +424,7 @@
   }
   
   .logoContainer {
-    width: 75px;
+    width: 220px;
   }
   
   .englishTitle {
@@ -484,7 +484,7 @@
   }
   
   .logoContainer {
-    width: 80px;
+    width: 250px;
   }
   
   .englishTitle {
@@ -544,7 +544,7 @@
   }
   
   .logoContainer {
-    width: 85px;
+  width: 250px;
   }
   
   .englishTitle {
@@ -590,7 +590,7 @@
   }
   
   .logoContainer {
-    width: 90px;
+     width: 250px;
   }
   
   .englishTitle {
@@ -625,7 +625,7 @@
   }
   
   .logoContainer {
-    width: 95px;
+  width: 250px;
   }
   
   .englishTitle {
@@ -647,9 +647,7 @@
     width: 55%;
   }
   
-  .logoContainer {
-    width: 100px;
-  }
+
   
   .englishTitle {
     font-size: 1.9rem;
@@ -672,10 +670,7 @@
   .glassPanel {
     width: 40%;
   }
-  
-  .logoContainer {
-    width: 100px;
-  }
+
   
   .englishTitle {
     font-size: 2rem;
