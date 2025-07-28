@@ -36,8 +36,10 @@ const AboutMe = () => {
   return (
     <section ref={containerRef} className={styles.section} id="מי-אני">
       <h2 className={`${styles.heading} ${styles.revealItem}`}>
-        <span className={styles.headingInner}>מי אני</span>
-        <span className={styles.headingEnglish}>About Me</span>
+        <div className={styles.headingContainer}>
+          <span className={styles.headingEnglish}>About Me</span>
+          <span className={styles.headingInner}>מי אני</span>
+        </div>
       </h2>
       
       <div className={styles.container}>
@@ -64,6 +66,18 @@ const AboutMe = () => {
               בלי שבלונות, בלי פחד מצבע או חומר. רק תעוזה, רגש והרבה תשוקה.
             </p>
           </div>
+        </div>
+      </div>
+
+      <div className={`${styles.storySection} ${styles.revealItem}`}>
+ 
+        <div className={styles.storyContent}>
+          <p className={styles.storyParagraph}>
+            <span className={styles.storyHighlight}>נולדתי אל תוך עולם של יופי, סדר ויצירה.</span> בבית שגדלתי בו, אסתטיקה לא הייתה מילה נרדפת לעיצוב – היא הייתה דרך חיים. אמא, perfectionist של ניקיון ודיוק ותחושת מרחב, ואבא שתמיד שיפץ, בנה, הוסיף עוד חדר או שתל פרח חדש בגינה. אני זוכרת את עצמי יושבת מהצד, בולעת כל תנועה, שואלת שאלות, לוקחת חלק – בלי להבין ששם בדיוק נרקמה התשוקה שלי לעיצוב פנים.
+          </p>
+          <p className={styles.storyParagraph}>
+            רק בשלב מאוחר יותר בחיים הבנתי כמה כל הרגעים האלו עיצבו אותי. היום, כל בית שאני נוגעת בו – נושא איתו את אותה <span className={styles.storyHighlight}>רגישות, דיוק ואהבה למרחב</span> שהתחילו הרבה לפני שלמדתי עיצוב.
+          </p>
         </div>
       </div>
     </section>

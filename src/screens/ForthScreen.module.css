@@ -81,7 +81,7 @@
     z-index: 5;
 }
 
-.introBox span {
+.introBox .span {
     font-size: 2.2rem;
     font-family: 'Bona', sans-serif;
     background: linear-gradient(135deg, #f7e1b8 25%, #f0dcc0 45%, #f5d5aa 65%, #fae6c7 85%);
@@ -556,7 +556,7 @@
         width: 90%;
     }
     
-    .introBox span {
+    .introBox .span {
         font-size: 1.6rem;
         white-space: normal;
         text-align: center;
@@ -623,9 +623,10 @@
         width: 95%;
     }
     
-    .introBox span {
+    .introBox .span {
         font-size: 1.8rem;
         white-space: normal;
+        width:100%;
         text-align: center;
     }
     
@@ -650,7 +651,7 @@
     
     .featureBox {
         width: 100%;
-        max-width: 300px;
+        max-width: 350px;
     }
     
     .textContainer h3 {
@@ -685,7 +686,7 @@
         width: 90%;
     }
     
-    .introBox span {
+    .introBox .span {
         font-size: 1.9rem;
         text-align: center;
     }
@@ -726,7 +727,7 @@
         width: 90%;
     }
     
-    .introBox span {
+    .introBox .span {
         font-size: 2rem;
         text-align: center;
     }

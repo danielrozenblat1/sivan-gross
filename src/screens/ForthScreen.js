@@ -178,7 +178,7 @@ const ForthScreen = () => {
                 <div className={styles.introSection}>
                     <div className={styles.introBox}>
                         <TextTransition springConfig={presets.gentle} inline>
-                            <span>{INTRO_TEXTS[index % INTRO_TEXTS.length]}</span>
+                            <span className={styles.span}>{INTRO_TEXTS[index % INTRO_TEXTS.length]}</span>
                         </TextTransition>
                     </div>
                 </div>
