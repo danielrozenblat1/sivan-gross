@@ -23,7 +23,7 @@ const InteriorDesign = () => {
       id: 2,
       title: 'הום סטיילינג',
       defaultImage: homestyleing,
-      hoverImage: homestyleing2
+      hoverImage: homestyleing
     },
     {
       id: 3,
