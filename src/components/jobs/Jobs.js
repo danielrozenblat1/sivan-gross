@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './Jobs.module.css';
 import shiputz from "../../images/ליווי.jpeg"
 import shiputz2 from "../../images/ליווי.jpeg"
-import homestyleing from "../../images/ייעוץ + הלבשה.png"
-import homestyleing2 from "../../images/ייעוץ + הלבשה.png"
+import homestyleing from "../../images/ייעוץ והלבשה.png"
+
 import consult from "../../images/שעת ייעוץ.png"
 import consult2 from "../../images/שעת ייעוץ.png"
 import livui from "../../images/ליווי ליום רכישות.png"
@@ -68,8 +68,8 @@ const InteriorDesign = () => {
   }, []);
 
   const handleWhatsAppClick = (title) => {
-    const phoneNumber = '972525553141';
-    const message = encodeURIComponent(`היי חני הגעתי מהדף, אשמח לשמוע עוד על ${title}`);
+    const phoneNumber = '+972535904070';
+    const message = encodeURIComponent(`היי סיון הגעתי מהדף, אשמח לשמוע עוד על ${title}`);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
   };
