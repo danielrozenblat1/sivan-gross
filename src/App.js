@@ -22,6 +22,7 @@ import ParralexScreen from './screens/ParralexScreen';
 import Recommendations from './components/recommends/Recommends';
 import SocialLinks from './components/social/Social';
 import SivanNew from './screens/SivanProjects';
+import InteriorDesign from './components/jobs/Jobs';
 // מערך תמונות מסוגנן בפורמט שהקומפוננט מצפה לקבל
 const images = [
   { src: open1, },

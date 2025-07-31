@@ -11,6 +11,8 @@ import result2 from "../../images/סיון גרוס המלצות 2.png";
 import result3 from "../../images/סיון גרוס המלצות 3.png";
 import result4 from "../../images/סיון גרוס המלצות 4.png";
 import result5 from "../../images/סיון גרוס המלצות 5.png";
+import result6 from "../../images/סיון גרוס המלצות 6.png";
+import result7 from "../../images/סיון גרוס המלצות 7.png";
 import Testimonials from '../newRecommends/NewRecommends';
 
 const Recommendations = () => {
@@ -20,7 +22,8 @@ const Recommendations = () => {
        { src: result1 },
     { src: result2 },
     { src: result3 },
-    
+    { src: result6 },
+    { src: result7 },
   ];
 
   const sliderSettings = {

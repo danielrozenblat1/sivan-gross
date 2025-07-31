@@ -10,6 +10,9 @@
       #120906 80%, 
       #0a0604 100%
     );
+    min-height: 100vh;
+    padding: 4rem 0;
+    direction: rtl;
 }
 
 /* שכבת ערפל אפור עדין אבל מורגש */
@@ -31,11 +34,12 @@
     text-align: center;
     direction: rtl;
     width: 80%;
-      background: linear-gradient(135deg, #efcaaa 30%, #dbb895 50%, #ead3b3 70%, #f0dcc0 90%);
+    background: linear-gradient(135deg, #efcaaa 30%, #dbb895 50%, #ead3b3 70%, #f0dcc0 90%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 2% auto;
-    flex-grow: 1;
+    position: relative;
+    z-index: 2;
 }
 
 .description {
@@ -43,203 +47,835 @@
     font-size: 1.4rem;
     text-align: center;
     direction: rtl;
-      background: linear-gradient(135deg, #efcaaa 30%, #dbb895 50%, #ead3b3 70%, #f0dcc0 90%);
+    background: linear-gradient(135deg, #efcaaa 30%, #dbb895 50%, #ead3b3 70%, #f0dcc0 90%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     width: 80%;
-    margin: 2% auto;
-    flex-grow: 1;
+    margin: 2% auto 4rem;
+    position: relative;
+    z-index: 2;
+    line-height: 1.6;
 }
 
-/* Responsive Media Queries */
+/* Netflix-style thumbnails grid */
+.netflixGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
 
-/* מתחת ל-350px */
+.netflixThumbnail {
+    position: relative;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    transform: scale(1);
+}
+
+.thumbnailHidden {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+}
+
+.thumbnailVisible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: thumbnailFadeIn 0.8s ease-out forwards;
+    animation-delay: var(--delay);
+}
+
+@keyframes thumbnailFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.netflixThumbnail:nth-child(1) { animation-delay: 0.1s; }
+.netflixThumbnail:nth-child(2) { animation-delay: 0.2s; }
+.netflixThumbnail:nth-child(3) { animation-delay: 0.3s; }
+.netflixThumbnail:nth-child(4) { animation-delay: 0.4s; }
+
+.netflixThumbnail:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.3);
+    z-index: 10;
+}
+
+.thumbnailImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.thumbnailImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: brightness(0.8) contrast(1.1);
+}
+
+.netflixThumbnail:hover .thumbnailImage {
+    transform: scale(1.1);
+    filter: brightness(1) contrast(1.2);
+}
+
+.thumbnailShine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease-in-out;
+}
+
+.netflixThumbnail:hover .thumbnailShine {
+    left: 100%;
+}
+
+.thumbnailOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    direction: rtl;
+    text-align: right;
+}
+
+.netflixThumbnail:hover .thumbnailOverlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.thumbnailTitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    font-family: 'Assistant', sans-serif;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.thumbnailCategory {
+    font-size: 0.8rem;
+    color: #cccccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'AssistantR', sans-serif;
+    opacity: 0.9;
+}
+
+.thumbnailGlow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+    border-radius: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.netflixThumbnail:hover .thumbnailGlow {
+    opacity: 1;
+}
+
+/* Gallery Modal */
+.galleryModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    direction: rtl;
+}
+
+.galleryModal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.galleryContainer {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Enhanced Gallery Image with Smooth Transitions */
+.galleryImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Image transition states */
+.galleryImage.transitioning {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+/* Enhanced Navigation Arrows */
+.galleryNav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    font-weight: 200;
+    opacity: 0.6;
+}
+
+/* Custom thin arrow icons */
+.galleryNav.prev::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-left: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    margin-right: 2px;
+}
+
+.galleryNav.next::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(-45deg);
+    margin-left: 2px;
+}
+
+.galleryNav:hover {
+    background: rgba(0, 0, 0, 0.25);
+    transform: translateY(-50%) scale(1.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.9);
+    opacity: 1;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.galleryNav.prev {
+    left: 20px;
+}
+
+.galleryNav.next {
+    right: 20px;
+}
+
+/* Enhanced Close Button */
+.galleryClose {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    font-weight: 200;
+    opacity: 1;
+    z-index: 1002;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.galleryClose:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.08);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Enhanced Gallery Thumbnails */
+.galleryThumbnails {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    max-width: 90%;
+    overflow-x: auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    scroll-behavior: smooth;
+}
+
+.galleryThumbnail {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transform: scale(0.95);
+    flex-shrink: 0;
+}
+
+.galleryThumbnail.active {
+    opacity: 1;
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.galleryThumbnail:hover {
+    opacity: 0.8;
+    transform: scale(1.02);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Enhanced Gallery Info */
+.galleryInfo {
+    position: absolute;
+    bottom: 100px;
+    right: 30px;
+    color: white;
+    font-family: 'AssistantR', sans-serif;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    opacity: 0.9;
+    direction: rtl;
+    text-align: right;
+}
+
+.galleryCounter {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 5px;
+    font-weight: 300;
+}
+
+.galleryProjectTitle {
+    font-size: 1.2rem;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 500;
+}
+
+/* Custom Scrollbar for thumbnails */
+.galleryThumbnails::-webkit-scrollbar {
+    height: 4px;
+}
+
+.galleryThumbnails::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+.galleryThumbnails::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+}
+
+.galleryThumbnails::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Focus states for accessibility */
+.galleryNav:focus,
+.galleryClose:focus,
+.galleryThumbnail:focus,
+.netflixThumbnail:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.4);
+    outline-offset: 2px;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* מתחת ל-350px - מסכים קטנים מאוד */
 @media (max-width: 349px) {
     .title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
         width: 90%;
-        margin: 3% auto;
     }
     
     .description {
         font-size: 1rem;
         width: 90%;
-        margin: 3% auto;
+        margin-bottom: 2rem;
     }
     
-    .background::before {
-        filter: blur(30px);
+    .netflixGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .netflixThumbnail {
+        height: 120px;
+    }
+    
+    .thumbnailOverlay {
+        padding: 1rem 0.8rem 0.8rem;
+    }
+    
+    .thumbnailTitle {
+        font-size: 0.9rem;
+    }
+    
+    .thumbnailCategory {
+        font-size: 0.6rem;
+    }
+    
+    .galleryNav {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    
+    .galleryNav.prev {
+        left: 10px;
+    }
+    
+    .galleryNav.next {
+        right: 10px;
+    }
+    
+    .galleryClose {
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .galleryThumbnails {
+        bottom: 50px;
+        gap: 6px;
+        padding: 8px;
+    }
+    
+    .galleryThumbnail {
+        width: 50px;
+        height: 35px;
+    }
+    
+    .galleryInfo {
+        bottom: 100px;
+        right: 15px;
+        padding: 10px 15px;
+    }
+    
+    .galleryCounter {
+        font-size: 0.8rem;
+    }
+    
+    .galleryProjectTitle {
+        font-size: 1rem;
     }
 }
 
-/* 350-450px */
-@media (min-width: 350px) and (max-width: 450px) {
+/* 350px-450px - טלפונים קטנים */
+@media (min-width: 350px) and (max-width: 449px) {
     .title {
-        font-size: 1.9rem;
+        font-size: 2rem;
         width: 85%;
-        margin: 2.5% auto;
     }
     
     .description {
         font-size: 1.1rem;
         width: 85%;
-        margin: 2.5% auto;
+        margin-bottom: 2.5rem;
     }
     
-    .background::before {
-        filter: blur(40px);
-    }
-}
-
-/* 450-550px */
-@media (min-width: 450px) and (max-width: 550px) {
-    .title {
-        font-size: 1.9rem;
-        width: 82%;
-        margin: 2.5% auto;
+    .netflixGrid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 0 1rem;
     }
     
-    .description {
+    .netflixThumbnail {
+        height: 140px;
+    }
+    
+    .thumbnailOverlay {
+        padding: 1.2rem 1rem 1rem;
+        transform: translateY(0);
+        opacity: 1;
+        background: linear-gradient(transparent 20%, rgba(0, 0, 0, 0.9));
+    }
+    
+    .thumbnailTitle {
+        font-size: 1rem;
+    }
+    
+    .thumbnailCategory {
+        font-size: 0.7rem;
+    }
+    
+    .galleryNav {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+    }
+    
+    .galleryNav.prev {
+        left: 12px;
+    }
+    
+    .galleryNav.next {
+        right: 12px;
+    }
+    
+    .galleryClose {
+        top: 18px;
+        right: 18px;
+        width: 42px;
+        height: 42px;
         font-size: 1.1rem;
-        width: 82%;
-        margin: 2.5% auto;
     }
     
-    .background::before {
-        filter: blur(45px);
+    .galleryThumbnails {
+        bottom: 55px;
+        gap: 7px;
+        padding: 9px;
+    }
+    
+    .galleryThumbnail {
+        width: 55px;
+        height: 40px;
+    }
+    
+    .galleryInfo {
+        bottom: 110px;
+        right: 18px;
+        padding: 11px 15px;
+    }
+    
+    .galleryCounter {
+        font-size: 0.85rem;
+    }
+    
+    .galleryProjectTitle {
+        font-size: 1.1rem;
     }
 }
 
-/* 550-650px */
-@media (min-width: 550px) and (max-width: 650px) {
+/* 450px-550px - טלפונים בינוניים */
+@media (min-width: 450px) and (max-width: 549px) {
     .title {
-        font-size: 2.1rem;
+        font-size: 2.2rem;
         width: 82%;
-        margin: 2.2% auto;
     }
     
     .description {
         font-size: 1.2rem;
         width: 82%;
-        margin: 2.2% auto;
+        margin-bottom: 3rem;
     }
     
-    .background::before {
-        filter: blur(50px);
+    .netflixGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1.5rem;
+    }
+    
+    .netflixThumbnail {
+        height: 160px;
+    }
+    
+    .thumbnailOverlay {
+        padding: 1.5rem 1.2rem 1.2rem;
+        transform: translateY(0);
+        opacity: 1;
+        background: linear-gradient(transparent 20%, rgba(0, 0, 0, 0.9));
+    }
+    
+    .thumbnailTitle {
+        font-size: 1.05rem;
+    }
+    
+    .thumbnailCategory {
+        font-size: 0.75rem;
+    }
+    
+    .galleryNav {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .galleryNav.prev {
+        left: 15px;
+    }
+    
+    .galleryNav.next {
+        right: 15px;
+    }
+    
+    .galleryClose {
+        top: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .galleryThumbnails {
+        bottom: 60px;
+        gap: 8px;
+        padding: 10px;
+    }
+    
+    .galleryThumbnail {
+        width: 60px;
+        height: 45px;
+    }
+    
+    .galleryInfo {
+        bottom: 115px;
+        right: 20px;
+        padding: 12px 16px;
+    }
+    
+    .galleryCounter {
+        font-size: 0.9rem;
+    }
+    
+    .galleryProjectTitle {
+        font-size: 1.15rem;
     }
 }
 
-/* 650-750px */
-@media (min-width: 650px) and (max-width: 750px) {
+/* 550px-650px - טלפונים גדולים / טאבלטים קטנים */
+@media (min-width: 550px) and (max-width: 649px) {
     .title {
-        font-size: 2.3rem;
-        width: 81%;
-        margin: 2.1% auto;
+        font-size: 2.4rem;
+        width: 80%;
     }
     
     .description {
         font-size: 1.3rem;
-        width: 81%;
-        margin: 2.1% auto;
+        width: 80%;
+        margin-bottom: 3rem;
     }
     
-    .background::before {
-        filter: blur(55px);
+    .netflixGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 2rem;
+    }
+    
+    .netflixThumbnail {
+        height: 170px;
+    }
+    
+    .thumbnailOverlay {
+        padding: 1.6rem 1.3rem 1.3rem;
+        transform: translateY(0);
+        opacity: 1;
+        background: linear-gradient(transparent 30%, rgba(0, 0, 0, 0.9));
+    }
+    
+    .thumbnailTitle {
+        font-size: 1.05rem;
+    }
+    
+    .thumbnailCategory {
+        font-size: 0.75rem;
+    }
+    
+    .galleryNav {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+    }
+    
+    .galleryNav.prev {
+        left: 18px;
+    }
+    
+    .galleryNav.next {
+        right: 18px;
+    }
+    
+    .galleryClose {
+        top: 22px;
+        right: 22px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.15rem;
+    }
+    
+    .galleryThumbnails {
+        bottom: 65px;
+        gap: 9px;
+        padding: 10px;
+    }
+    
+    .galleryThumbnail {
+        width: 65px;
+        height: 50px;
+    }
+    
+    .galleryInfo {
+        bottom: 120px;
+        right: 22px;
+        padding: 13px 17px;
+    }
+    
+    .galleryCounter {
+        font-size: 0.9rem;
+    }
+    
+    .galleryProjectTitle {
+        font-size: 1.2rem;
     }
 }
 
-/* 750-850px */
-@media (min-width: 750px) and (max-width: 850px) {
-    .title {
-        font-size: 2.4rem;
-        width: 80%;
-        margin: 2% auto;
-    }
-    
-    .description {
-        font-size: 1.35rem;
-        width: 80%;
-        margin: 2% auto;
-    }
-    
-    .background::before {
-        filter: blur(58px);
-    }
-}
-
-/* 850-950px */
-@media (min-width: 850px) and (max-width: 950px) {
+/* מעל 650px - מסכים גדולים */
+@media (min-width: 650px) {
     .title {
         font-size: 2.5rem;
         width: 80%;
-        margin: 2% auto;
     }
     
     .description {
         font-size: 1.4rem;
         width: 80%;
-        margin: 2% auto;
+        margin-bottom: 4rem;
     }
     
-    .background::before {
-        filter: blur(60px);
+    .netflixGrid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        padding: 0 2rem;
+    }
+    
+    .netflixThumbnail {
+        height: 200px;
+    }
+    
+    .thumbnailOverlay {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+    
+    .thumbnailTitle {
+        font-size: 1.1rem;
+    }
+    
+    .thumbnailCategory {
+        font-size: 0.8rem;
+    }
+    
+    .galleryNav {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+    }
+    
+    .galleryNav.prev {
+        left: 20px;
+    }
+    
+    .galleryNav.next {
+        right: 20px;
+    }
+    
+    .galleryClose {
+        top: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .galleryThumbnails {
+        bottom: 70px;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .galleryThumbnail {
+        width: 80px;
+        height: 60px;
+    }
+    
+    .galleryInfo {
+        bottom: 130px;
+        right: 30px;
+        padding: 15px 20px;
+    }
+    
+    .galleryCounter {
+        font-size: 0.9rem;
+    }
+    
+    .galleryProjectTitle {
+        font-size: 1.2rem;
     }
 }
-
-/* 950-1050px */
-@media (min-width: 950px) and (max-width: 1050px) {
-    .title {
-        font-size: 2.6rem;
-        width: 78%;
-        margin: 2% auto;
-    }
-    
-    .description {
-        font-size: 1.45rem;
-        width: 78%;
-        margin: 2% auto;
-    }
-    
-    .background::before {
-        filter: blur(62px);
-    }
-}
-
-/* 1050-1150px */
-@media (min-width: 1050px) and (max-width: 1150px) {
-    .title {
-        font-size: 2.7rem;
-        width: 76%;
-        margin: 2% auto;
-    }
-    
-    .description {
-        font-size: 1.5rem;
-        width: 76%;
-        margin: 2% auto;
-    }
-    
-    .background::before {
-        filter: blur(65px);
-    }
-}
-
-/* 1150-1250px */
-@media (min-width: 1150px) and (max-width: 1250px) {
-    .title {
-        font-size: 2.8rem;
-        width: 74%;
-        margin: 2% auto;
-    }
-    
-    .description {
-        font-size: 1.55rem;
-        width: 74%;
-        margin: 2% auto;
-    }
-    
-    .background::before {
-        filter: blur(68px);
-    }
-}
-

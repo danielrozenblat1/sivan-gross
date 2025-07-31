@@ -36,6 +36,47 @@
   transition: transform 6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* אפקט טלטול עדין לשנדליר */
+.carouselImage.chandelier {
+  animation: gentleSwing 8s ease-in-out infinite;
+  transform-origin: center top;
+}
+
+@keyframes gentleSwing {
+  0%, 100% {
+    transform: scale(1.1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.1) rotate(0.5deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(0deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(-0.5deg);
+  }
+}
+
+.carouselItem.active .carouselImage.chandelier {
+  animation: gentleSwingActive 8s ease-in-out infinite;
+  transform-origin: center top;
+}
+
+@keyframes gentleSwingActive {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1) rotate(0.5deg);
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+  }
+  75% {
+    transform: scale(1) rotate(-0.5deg);
+  }
+}
+
 .carouselItem.active {
   opacity: 1;
   transform: scale(1);
@@ -80,7 +121,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 35%;
-  padding: 1rem 1.5rem;
+  padding: 0 1rem;
   text-align: center;
   z-index: 10;
   display: flex;
@@ -112,10 +153,29 @@
   object-fit: contain;
   object-position: center;
   transition: transform 0.3s ease;
+  /* אנימציית טלטול עדינה ללוגו */
+  animation: logoGentleSway 6s ease-in-out infinite;
+}
+
+/* אנימציית טלטול עדינה ללוגו */
+@keyframes logoGentleSway {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(3px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
 }
 
 .logoImage:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) translateX(0px);
+  animation-play-state: paused; /* עוצר את האנימציה בזמן hover */
 }
 
 .englishTitle {
@@ -284,7 +344,7 @@
 @media (max-width: 349px) {
   .glassPanel {
     width: 95%;
-    padding: 0.75rem;
+    padding: 0;
     bottom: 20%;
   }
   
@@ -354,8 +414,8 @@ width: 200px;
 /* 350px - 450px */
 @media (min-width: 350px) and (max-width: 450px) {
   .glassPanel {
-    width: 95%;
-    padding: 0.8rem;
+    width: 90%;
+   padding: 0;
     bottom: 18%;
   }
   

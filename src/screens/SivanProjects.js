@@ -1,5 +1,4 @@
-import React from 'react';
-import ProjectCarousel from '../components/projects/Projects';
+import React, { useState, useEffect } from 'react';
 import styles from './SivanProjects.module.css';
 
 // אימפורטים לתמונות סוויטה של אושר (42 תמונות)
@@ -123,195 +122,249 @@ import newProject10 from "../images/פרוייקט חדש 10.png";
 import newProject11 from "../images/פרוייקט חדש 11.png";
 import newProject12 from "../images/פרוייקט חדש 12.png";
 
-const SivanNew = () => {
+
+import main1 from "../images/אושר ראשית.png"
+import main2 from "../images/רילקס ראשית.png"
+import main3 from "../images/הורים ראשית.png"
+import main4 from "../images/אלמוג ראשית.png"
+const SivanNetflixGallery = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [visibleThumbnails, setVisibleThumbnails] = useState(new Set());
+
   // יצירת מערכי התמונות
   const osherImages = [
-    { src: image1, alt: "הסוויטה של אושר - תמונה 1" },
-    { src: image2, alt: "הסוויטה של אושר - תמונה 2" },
-    { src: image3, alt: "הסוויטה של אושר - תמונה 3" },
-    { src: image4, alt: "הסוויטה של אושר - תמונה 4" },
-    { src: image5, alt: "הסוויטה של אושר - תמונה 5" },
-    { src: image6, alt: "הסוויטה של אושר - תמונה 6" },
-    { src: image7, alt: "הסוויטה של אושר - תמונה 7" },
-    { src: image8, alt: "הסוויטה של אושר - תמונה 8" },
-    { src: image9, alt: "הסוויטה של אושר - תמונה 9" },
-    { src: image10, alt: "הסוויטה של אושר - תמונה 10" },
-    { src: image11, alt: "הסוויטה של אושר - תמונה 11" },
-    { src: image12, alt: "הסוויטה של אושר - תמונה 12" },
-    { src: image13, alt: "הסוויטה של אושר - תמונה 13" },
-    { src: image14, alt: "הסוויטה של אושר - תמונה 14" },
-    { src: image15, alt: "הסוויטה של אושר - תמונה 15" },
-    { src: image16, alt: "הסוויטה של אושר - תמונה 16" },
-    { src: image17, alt: "הסוויטה של אושר - תמונה 17" },
-    { src: image18, alt: "הסוויטה של אושר - תמונה 18" },
-    { src: image19, alt: "הסוויטה של אושר - תמונה 19" },
-    { src: image20, alt: "הסוויטה של אושר - תמונה 20" },
-    { src: image21, alt: "הסוויטה של אושר - תמונה 21" },
-    { src: image22, alt: "הסוויטה של אושר - תמונה 22" },
-    { src: image23, alt: "הסוויטה של אושר - תמונה 23" },
-    { src: image24, alt: "הסוויטה של אושר - תמונה 24" },
-    { src: image25, alt: "הסוויטה של אושר - תמונה 25" },
-    { src: image26, alt: "הסוויטה של אושר - תמונה 26" },
-    { src: image27, alt: "הסוויטה של אושר - תמונה 27" },
-    { src: image28, alt: "הסוויטה של אושר - תמונה 28" },
-    { src: image29, alt: "הסוויטה של אושר - תמונה 29" },
-    { src: image30, alt: "הסוויטה של אושר - תמונה 30" },
-    { src: image31, alt: "הסוויטה של אושר - תמונה 31" },
-    { src: image32, alt: "הסוויטה של אושר - תמונה 32" },
-    { src: image33, alt: "הסוויטה של אושר - תמונה 33" },
-    { src: image34, alt: "הסוויטה של אושר - תמונה 34" },
-    { src: image35, alt: "הסוויטה של אושר - תמונה 35" },
-    { src: image36, alt: "הסוויטה של אושר - תמונה 36" },
-    { src: image37, alt: "הסוויטה של אושר - תמונה 37" },
-    { src: image38, alt: "הסוויטה של אושר - תמונה 38" },
-    { src: image39, alt: "הסוויטה של אושר - תמונה 39" },
-    { src: image40, alt: "הסוויטה של אושר - תמונה 40" },
-    { src: image41, alt: "הסוויטה של אושר - תמונה 41" },
-    { src: image42, alt: "הסוויטה של אושר - תמונה 42" }
+    image1, image2, image3, image4, image5, image6, image7, image8, image9, image10,
+    image11, image12, image13, image14, image15, image16, image17, image18, image19, image20,
+    image21, image22, image23, image24, image25, image26, image27, image28, image29, image30,
+    image31, image32, image33, image34, image35, image36, image37, image38, image39, image40,
+    image41, image42
   ];
 
   const relaxImages = [
-    { src: relax1, alt: "סוויטת רילקס - תמונה 1" },
-    { src: relax2, alt: "סוויטת רילקס - תמונה 2" },
-    { src: relax3, alt: "סוויטת רילקס - תמונה 3" },
-    { src: relax4, alt: "סוויטת רילקס - תמונה 4" },
-    { src: relax5, alt: "סוויטת רילקס - תמונה 5" },
-    { src: relax6, alt: "סוויטת רילקס - תמונה 6" },
-    { src: relax7, alt: "סוויטת רילקס - תמונה 7" },
-    { src: relax8, alt: "סוויטת רילקס - תמונה 8" },
-    { src: relax9, alt: "סוויטת רילקס - תמונה 9" },
-    { src: relax10, alt: "סוויטת רילקס - תמונה 10" },
-    { src: relax11, alt: "סוויטת רילקס - תמונה 11" },
-    { src: relax12, alt: "סוויטת רילקס - תמונה 12" },
-    { src: relax13, alt: "סוויטת רילקס - תמונה 13" },
-    { src: relax14, alt: "סוויטת רילקס - תמונה 14" },
-    { src: relax15, alt: "סוויטת רילקס - תמונה 15" },
-    { src: relax16, alt: "סוויטת רילקס - תמונה 16" },
-    { src: relax17, alt: "סוויטת רילקס - תמונה 17" },
-    { src: relax18, alt: "סוויטת רילקס - תמונה 18" },
-    { src: relax19, alt: "סוויטת רילקס - תמונה 19" },
-    { src: relax20, alt: "סוויטת רילקס - תמונה 20" },
-    { src: relax21, alt: "סוויטת רילקס - תמונה 21" },
-    { src: relax22, alt: "סוויטת רילקס - תמונה 22" },
-    { src: relax23, alt: "סוויטת רילקס - תמונה 23" },
-    { src: relax24, alt: "סוויטת רילקס - תמונה 24" },
-    { src: relax25, alt: "סוויטת רילקס - תמונה 25" },
-    { src: relax26, alt: "סוויטת רילקס - תמונה 26" },
-    { src: relax27, alt: "סוויטת רילקס - תמונה 27" },
-    { src: relax28, alt: "סוויטת רילקס - תמונה 28" },
-    { src: relax29, alt: "סוויטת רילקס - תמונה 29" },
-    { src: relax30, alt: "סוויטת רילקס - תמונה 30" },
-    { src: relax31, alt: "סוויטת רילקס - תמונה 31" },
-    { src: relax32, alt: "סוויטת רילקס - תמונה 32" },
-    { src: relax33, alt: "סוויטת רילקס - תמונה 33" },
-    { src: relax34, alt: "סוויטת רילקס - תמונה 34" },
-    { src: relax35, alt: "סוויטת רילקס - תמונה 35" },
-    { src: relax36, alt: "סוויטת רילקס - תמונה 36" },
-    { src: relax37, alt: "סוויטת רילקס - תמונה 37" },
-    { src: relax38, alt: "סוויטת רילקס - תמונה 38" },
-    { src: relax39, alt: "סוויטת רילקס - תמונה 39" },
-    { src: relax40, alt: "סוויטת רילקס - תמונה 40" },
-    { src: relax41, alt: "סוויטת רילקס - תמונה 41" },
-    { src: relax42, alt: "סוויטת רילקס - תמונה 42" },
-    { src: relax43, alt: "סוויטת רילקס - תמונה 43" },
-    { src: relax44, alt: "סוויטת רילקס - תמונה 44" },
-    { src: relax45, alt: "סוויטת רילקס - תמונה 45" },
-    { src: relax46, alt: "סוויטת רילקס - תמונה 46" },
-    { src: relax47, alt: "סוויטת רילקס - תמונה 47" },
-    { src: relax48, alt: "סוויטת רילקס - תמונה 48" },
-    { src: relax49, alt: "סוויטת רילקס - תמונה 49" }
+    relax1, relax2, relax3, relax4, relax5, relax6, relax7, relax8, relax9, relax10,
+    relax11, relax12, relax13, relax14, relax15, relax16, relax17, relax18, relax19, relax20,
+    relax21, relax22, relax23, relax24, relax25, relax26, relax27, relax28, relax29, relax30,
+    relax31, relax32, relax33, relax34, relax35, relax36, relax37, relax38, relax39, relax40,
+    relax41, relax42, relax43, relax44, relax45, relax46, relax47, relax48, relax49
   ];
 
   const almogImages = [
-    { src: almog1, alt: "אחוזת אלמוג - תמונה 1" },
-    { src: almog2, alt: "אחוזת אלמוג - תמונה 2" },
-    { src: almog3, alt: "אחוזת אלמוג - תמונה 3" },
-    { src: almog4, alt: "אחוזת אלמוג - תמונה 4" },
-    { src: almog5, alt: "אחוזת אלמוג - תמונה 5" },
-    { src: almog6, alt: "אחוזת אלמוג - תמונה 6" },
-    { src: almog7, alt: "אחוזת אלמוג - תמונה 7" },
-    { src: almog8, alt: "אחוזת אלמוג - תמונה 8" },
-    { src: almog9, alt: "אחוזת אלמוג - תמונה 9" },
-    { src: almog10, alt: "אחוזת אלמוג - תמונה 10" }
+    almog1, almog2, almog3, almog4, almog5, almog6, almog7, almog8, almog9, almog10
   ];
 
   const newProjectImages = [
-    { src: newProject6, alt: "פרוייקט חדש - תמונה 6" },
-    { src: newProject9, alt: "פרוייקט חדש - תמונה 9" },
-    { src: newProject1, alt: "פרוייקט חדש - תמונה 1" },
-    { src: newProject2, alt: "פרוייקט חדש - תמונה 2" },
-    { src: newProject3, alt: "פרוייקט חדש - תמונה 3" },
-    { src: newProject4, alt: "פרוייקט חדש - תמונה 4" },
-    { src: newProject5, alt: "פרוייקט חדש - תמונה 5" },
-    { src: newProject7, alt: "פרוייקט חדש - תמונה 7" },
-    { src: newProject8, alt: "פרוייקט חדש - תמונה 8" },
-    { src: newProject10, alt: "פרוייקט חדש - תמונה 10" },
-    { src: newProject11, alt: "פרוייקט חדש - תמונה 11" },
-    { src: newProject12, alt: "פרוייקט חדש - תמונה 12" }
+    newProject6, newProject9, newProject1, newProject2, newProject3, newProject4,
+    newProject5, newProject7, newProject8, newProject10, newProject11, newProject12
   ];
 
   const projectsData = [
     {
       id: 1,
       title: "הסוויטה של אושר - סוויטה בצפון הארץ",
-    
+      thumbnail: main1,
       images: osherImages
     },
     {
       id: 2,
-      title: "פרוייקט חדש",
-    
+      title: "סוויטה הורים",
+      thumbnail: main3,
       images: newProjectImages
     },
     {
       id: 3,
       title: "סוויטת רילקס",
-     
+      thumbnail: main2,
       images: relaxImages
     },
     {
       id: 4,
       title: "אחוזת אלמוג",
-      
+      thumbnail: main4,
       images: almogImages
     }
   ];
 
+  // Enhanced navigation function with smooth transitions
+  const navigateToImage = (newIndex) => {
+    if (isTransitioning || newIndex === currentImageIndex) return;
+    
+    setIsTransitioning(true);
+    
+    setTimeout(() => {
+      setCurrentImageIndex(newIndex);
+      
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 300);
+    }, 300);
+  };
+
+  const nextImage = () => {
+    const newIndex = currentImageIndex === selectedProject.images.length - 1 ? 0 : currentImageIndex + 1;
+    navigateToImage(newIndex);
+  };
+
+  const prevImage = () => {
+    const newIndex = currentImageIndex === 0 ? selectedProject.images.length - 1 : currentImageIndex - 1;
+    navigateToImage(newIndex);
+  };
+
+  const goToImage = (index) => {
+    navigateToImage(index);
+  };
+
+  // Keyboard navigation for gallery
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!selectedProject) return;
+      
+      switch(e.key) {
+        case 'ArrowRight':
+          nextImage();
+          break;
+        case 'ArrowLeft':
+          prevImage();
+          break;
+        case 'Escape':
+          closeGallery();
+          break;
+        default:
+          break;
+      }
+    };
+
+    if (selectedProject) {
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [selectedProject, currentImageIndex, isTransitioning]);
+
+  // Animate thumbnails on load
+  useEffect(() => {
+    projectsData.forEach((_, index) => {
+      setTimeout(() => {
+        setVisibleThumbnails(prev => new Set([...prev, index]));
+      }, index * 150);
+    });
+  }, []);
+
+  const openGallery = (project) => {
+    setSelectedProject(project);
+    setCurrentImageIndex(0);
+    setIsTransitioning(false);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeGallery = () => {
+    setSelectedProject(null);
+    setCurrentImageIndex(0);
+    setIsTransitioning(false);
+    document.body.style.overflow = 'auto';
+  };
+
   return (
-    <>
-      <div className={styles.background}>
-        <div className={styles.title} id="פרוייקטים">הפרוייקטים שלי</div>
-        <div className={styles.description}>
-          כשאני מעצבת חלל, אני לא עוצרת ביופי החיצוני, אני יוצרת חוויה- כזו שנכנסים אליה וזוכרים.
-          עיצוב טוב לא רק נראה טוב - הוא גורם לך לעצור, להרגיש, לזכור.
-          העיצוב שלי הוא תוצאה של הקשבה ותעוזה, דיוק ושילובים שאחרים לא היו מעזים לחשוב עליהם.
-          אני לא מאמינה בתבניות, ולא חוזרת על עצמי- כי כל אדם הוא סיפור, וכל חלל צריך לספר אחרת.
-          פעם עיצוב היה מותרות, היום זו שפה!
-          בעיניי עיצוב הוא כלי שמשקף אישיות, ערכים ואמירה!
-          ולכן אני עובדת עם אנשים ועסקים שמבינים שעיצוב טוב הוא מעבר לאסתטיקה-
-          היא דרך לבטא מי אתה, מה אתה מאמין בו, ואיך אתה רוצה לשדר זאת לעולם.
-          עיצבתי עשרות חללים לאורך השנים, ולכל אחד קול יחודי משלו.
-          אבל אם יש משהו שמשותף לכולם- זה הרושם שהם משאירים.
-          בין אם זה בית או עסק- אני באה לעשות קסם.
-          עם חיוך, חוצפה טובה וסטייל שאי אפשר להתעלם ממנו.
-        </div>
-        <div className={styles.projectsList}>
-          {projectsData.map((project, index) => (
-            <div key={project.id} className={styles.projectSection}>
-              <div className={styles.projectContent}>
-                <ProjectCarousel
-                  projectNumber={String(index + 1).padStart(2, '0')}
-                  images={project.images}
-                  title={project.title}
-                  description={project.description}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
+    <div className={styles.background}>
+      <div className={styles.title} id="פרוייקטים">הפרוייקטים שלי</div>
+      <div className={styles.description}>
+        כשאני מעצבת חלל, אני לא עוצרת ביופי החיצוני, אני יוצרת חוויה- כזו שנכנסים אליה וזוכרים.
+        עיצוב טוב לא רק נראה טוב - הוא גורם לך לעצור, להרגיש, לזכור.
+        העיצוב שלי הוא תוצאה של הקשבה ותעוזה, דיוק ושילובים שאחרים לא היו מעזים לחשוב עליהם.
+        אני לא מאמינה בתבניות, ולא חוזרת על עצמי- כי כל אדם הוא סיפור, וכל חלל צריך לספר אחרת.
+        פעם עיצוב היה מותרות, היום זו שפה!
+        בעיניי עיצוב הוא כלי שמשקף אישיות, ערכים ואמירה!
+        ולכן אני עובדת עם אנשים ועסקים שמבינים שעיצוב טוב הוא מעבר לאסתטיקה-
+        היא דרך לבטא מי אתה, מה אתה מאמין בו, ואיך אתה רוצה לשדר זאת לעולם.
+        עיצבתי עשרות חללים לאורך השנים, ולכל אחד קול יחודי משלו.
+        אבל אם יש משהו שמשותף לכולם- זה הרושם שהם משאירים.
+        בין אם זה בית או עסק- אני באה לעשות קסם.
+        עם חיוך, חוצפה טובה וסטייל שאי אפשר להתעלם ממנו.
       </div>
-    </>
+   <div className={styles.description}>
+    לחצו על כל פרוייקט כדי לפתוח את הפרוייקט המלא
+      </div>
+
+      {/* Netflix-style thumbnails grid */}
+      <div className={styles.netflixGrid}>
+        {projectsData.map((project, index) => (
+          <div 
+            key={project.id}
+            className={`${styles.netflixThumbnail} ${
+              visibleThumbnails.has(index) ? styles.thumbnailVisible : styles.thumbnailHidden
+            }`}
+            onClick={() => openGallery(project)}
+            style={{
+              '--delay': `${index * 0.1}s`,
+              '--random-rotation': `${(Math.random() - 0.5) * 6}deg`,
+              '--random-scale': `${0.95 + Math.random() * 0.1}`
+            }}
+          >
+            <div className={styles.thumbnailImageWrapper}>
+              <img 
+                src={project.thumbnail} 
+                alt={project.title}
+                className={styles.thumbnailImage}
+              />
+              <div className={styles.thumbnailShine}></div>
+            </div>
+            <div className={styles.thumbnailOverlay}>
+              <h3 className={styles.thumbnailTitle}>{project.title}</h3>
+              <span className={styles.thumbnailCategory}>פרוייקט עיצוב</span>
+            </div>
+            <div className={styles.thumbnailGlow}></div>
+          </div>
+        ))}
+      </div>
+
+      {/* Gallery Modal */}
+      {selectedProject && (
+        <div className={`${styles.galleryModal} ${selectedProject ? styles.active : ''}`}>
+          <div className={styles.galleryContainer}>
+            <button className={styles.galleryClose} onClick={closeGallery}>
+              ×
+            </button>
+            
+            <button className={`${styles.galleryNav} ${styles.prev}`} onClick={prevImage}>
+            </button>
+            
+            <img 
+              src={selectedProject.images[currentImageIndex]} 
+              alt={`${selectedProject.title} - תמונה ${currentImageIndex + 1}`}
+              className={`${styles.galleryImage} ${isTransitioning ? styles.transitioning : ''}`}
+              onLoad={() => {
+                if (isTransitioning) {
+                  setTimeout(() => setIsTransitioning(false), 100);
+                }
+              }}
+            />
+            
+            <button className={`${styles.galleryNav} ${styles.next}`} onClick={nextImage}>
+            </button>
+            
+            <div className={styles.galleryInfo}>
+              <div className={styles.galleryCounter}>
+                {currentImageIndex + 1} / {selectedProject.images.length}
+              </div>
+          
+            </div>
+            
+            <div className={styles.galleryThumbnails}>
+              {selectedProject.images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`תמונה זעירה ${index + 1}`}
+                  className={`${styles.galleryThumbnail} ${index === currentImageIndex ? styles.active : ''}`}
+                  onClick={() => goToImage(index)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
-export default SivanNew;
+export default SivanNetflixGallery;
