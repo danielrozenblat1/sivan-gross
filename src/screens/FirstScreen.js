@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './FirstScreen.module.css';
-import logoImage from "../images/סיון לוגו חדש.png";
+import logoImage from "../images/סיון גרוס לוגו לבן.png";
 import Loader from '../components/loader/Loader';
 
 const FirstScreen = ({ images }) => {

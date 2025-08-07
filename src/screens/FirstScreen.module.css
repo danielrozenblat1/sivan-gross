@@ -158,20 +158,7 @@
 }
 
 /* אנימציית טלטול עדינה ללוגו */
-@keyframes logoGentleSway {
-  0%, 100% {
-    transform: translateX(0px);
-  }
-  25% {
-    transform: translateX(3px);
-  }
-  50% {
-    transform: translateX(0px);
-  }
-  75% {
-    transform: translateX(-3px);
-  }
-}
+
 
 .logoImage:hover {
   transform: scale(1.05) translateX(0px);
