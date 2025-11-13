@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Jobs.module.css';
-import shiputz from "../../images/ליווי.jpeg"
-import shiputz2 from "../../images/ליווי.jpeg"
+import shiputz from "../../images/סיון ליווי מלא תמונה.png"
+import shiputz2 from "../../images/סיון ליווי מלא תמונה.png"
 import homestyleing from "../../images/ייעוץ והלבשה.png"
 
 import consult from "../../images/שעת ייעוץ.png"

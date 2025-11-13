@@ -42,8 +42,9 @@ function App() {
     {/* <TextFillEffect/> */}
 
     <AboutMe/>
-    <Recommendations/>
     <SivanNew/>
+    <Recommendations/>
+    
     {/* <SecondScreen/> */}
     <ForthScreen/>
 

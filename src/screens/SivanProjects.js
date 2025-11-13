@@ -122,11 +122,39 @@ import newProject10 from "../images/פרוייקט חדש 10.png";
 import newProject11 from "../images/פרוייקט חדש 11.png";
 import newProject12 from "../images/פרוייקט חדש 12.png";
 
+import itamar1 from "../images/סיון גרוס הוילה של איתמר 1.png";
+import itamar2 from "../images/סיון גרוס הוילה של איתמר 2.png";
+import itamar3 from "../images/סיון גרוס הוילה של איתמר 3.png";
+import itamar4 from "../images/סיון גרוס הוילה של איתמר 4.png";
+import itamar5 from "../images/סיון גרוס הוילה של איתמר 5.png";
+import itamar6 from "../images/סיון גרוס הוילה של איתמר 6.png";
+import itamar7 from "../images/סיון גרוס הוילה של איתמר 7.png";
+import itamar8 from "../images/סיון גרוס הוילה של איתמר 8.png";
+import itamar9 from "../images/סיון גרוס הוילה של איתמר 9.png";
+import itamar10 from "../images/סיון גרוס הוילה של איתמר 10.png";
+import itamar11 from "../images/סיון גרוס הוילה של איתמר 11.png";
+import itamar12 from "../images/סיון גרוס הוילה של איתמר 12.png";
+import itamar13 from "../images/סיון גרוס הוילה של איתמר 13.png";
+import itamar14 from "../images/סיון גרוס הוילה של איתמר 14.png";
+import itamar15 from "../images/סיון גרוס הוילה של איתמר 15.png";
+import itamar16 from "../images/סיון גרוס הוילה של איתמר 16.png";
+import itamar17 from "../images/סיון גרוס הוילה של איתמר 17.png";
+import itamar18 from "../images/סיון גרוס הוילה של איתמר 18.png";
+import itamar19 from "../images/סיון גרוס הוילה של איתמר 19.png";
+import itamar20 from "../images/סיון גרוס הוילה של איתמר 20.png";
+import itamar21 from "../images/סיון גרוס הוילה של איתמר 21.png";
+import itamar22 from "../images/סיון גרוס הוילה של איתמר 22.png";
+import itamar23 from "../images/סיון גרוס הוילה של איתמר 23.png";
+import itamar24 from "../images/סיון גרוס הוילה של איתמר 24.png";
+import itamar25 from "../images/סיון גרוס הוילה של איתמר 25.png";
+
 
 import main1 from "../images/אושר ראשית.png"
 import main2 from "../images/רילקס ראשית.png"
 import main3 from "../images/הורים ראשית.png"
 import main4 from "../images/אלמוג ראשית.png"
+import main5 from "../images/סיון גרוס הוילה של איתמר 14.png"
+import Button from '../components/button/Button';
 const SivanNetflixGallery = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -135,19 +163,19 @@ const SivanNetflixGallery = () => {
 
   // יצירת מערכי התמונות
   const osherImages = [
-    image1, image2, image3, image4, image5, image6, image7, image8, image9, image10,
-    image11, image12, image13, image14, image15, image16, image17, image18, image19, image20,
-    image21, image22, image23, image24, image25, image26, image27, image28, image29, image30,
-    image31, image32, image33, image34, image35, image36, image37, image38, image39, image40,
+   image22, image26, image27, image28, image29,  image6, image7, image8, image9, image10,
+    image11, image12, image13, image14, image15, image16,  image18, image19, image36, image37, image38, image39, image40,
+    image1, image2, image3, image4, image5,  image23,  image35,  image25,
+   image32, image33, image34,
     image41, image42
   ];
 
   const relaxImages = [
-    relax1, relax2, relax3, relax4, relax5, relax6, relax7, relax8, relax9, relax10,
+    relax2, relax3, relax4, relax32,relax5,  relax7, relax8, relax9, relax10, relax1,
     relax11, relax12, relax13, relax14, relax15, relax16, relax17, relax18, relax19, relax20,
-    relax21, relax22, relax23, relax24, relax25, relax26, relax27, relax28, relax29, relax30,
-    relax31, relax32, relax33, relax34, relax35, relax36, relax37, relax38, relax39, relax40,
-    relax41, relax42, relax43, relax44, relax45, relax46, relax47, relax48, relax49
+    relax21, relax22, relax23, relax24, relax25, relax26,relax28, relax29, relax30,
+    relax31,   relax34, relax35, relax36,  relax38, relax39, relax40,
+   relax42, relax43, relax44, relax45, relax46, relax47, relax48, relax49
   ];
 
   const almogImages = [
@@ -155,11 +183,22 @@ const SivanNetflixGallery = () => {
   ];
 
   const newProjectImages = [
-    newProject6, newProject9, newProject1, newProject2, newProject3, newProject4,
-    newProject5, newProject7, newProject8, newProject10, newProject11, newProject12
+    newProject9,  newProject6,newProject2,
+ newProject7, newProject8, newProject10, newProject11, newProject12  , newProject1,  newProject3, newProject4, newProject5,
   ];
-
+  const itamarImages = [
+   itamar14, itamar1, itamar2, itamar3, itamar4, itamar5, itamar6, itamar7, itamar8, itamar9, itamar10,
+    itamar11, itamar12, itamar13,  itamar15, itamar16, itamar17, itamar18, itamar19, itamar20,
+    itamar21, itamar22, itamar23, itamar24, itamar25
+  ];
   const projectsData = [
+
+       {
+      id: 5,
+      title: "הוילה של איתמר",
+      thumbnail: main5,
+      images: itamarImages
+    },
     {
       id: 1,
       title: "הסוויטה של אושר - סוויטה בצפון הארץ",
@@ -183,7 +222,8 @@ const SivanNetflixGallery = () => {
       title: "אחוזת אלמוג",
       thumbnail: main4,
       images: almogImages
-    }
+    },
+   
   ];
 
   // Enhanced navigation function with smooth transitions
@@ -264,7 +304,7 @@ const SivanNetflixGallery = () => {
     document.body.style.overflow = 'auto';
   };
 
-  return (
+  return <>
     <div className={styles.background}>
       <div className={styles.title} id="פרוייקטים">הפרוייקטים שלי</div>
       <div className={styles.description}>
@@ -281,8 +321,8 @@ const SivanNetflixGallery = () => {
         בין אם זה בית או עסק- אני באה לעשות קסם.
         עם חיוך, חוצפה טובה וסטייל שאי אפשר להתעלם ממנו.
       </div>
-   <div className={styles.description}>
-    לחצו על כל פרוייקט כדי לפתוח את הפרוייקט המלא
+   <div className={styles.description} style={{fontWeight:800}}>
+    לחצו על כל תמונה כדי לפתוח את הפרוייקט המלא
       </div>
 
       {/* Netflix-style thumbnails grid */}
@@ -363,8 +403,10 @@ const SivanNetflixGallery = () => {
           </div>
         </div>
       )}
+       <Button text="סיון, בואי נדבר על הפרוייקט שלי"/>
     </div>
-  );
+   
+</>
 };
 
 export default SivanNetflixGallery;
