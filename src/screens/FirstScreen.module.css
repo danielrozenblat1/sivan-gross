@@ -117,7 +117,7 @@
 /* Glass Panel Styles */
 .glassPanel {
   position: absolute;
-  bottom: 15%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%);
   width: 35%;
@@ -237,7 +237,7 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translate(-50%, 20px);
+    transform: translate(-50%, -20px);
   }
   100% {
     opacity: 1;
@@ -330,13 +330,16 @@
 /* Below 350px */
 @media (max-width: 349px) {
   .glassPanel {
-    width: 95%;
+    width: 100%;
     padding: 0;
-    bottom: 20%;
+    top: 10%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
   
   .logoContainer {
-width: 200px;
+    width: 200px;
   }
   
   .englishTitle {
@@ -401,13 +404,16 @@ width: 200px;
 /* 350px - 450px */
 @media (min-width: 350px) and (max-width: 450px) {
   .glassPanel {
-    width: 90%;
-   padding: 0;
-    bottom: 18%;
+    width: 100%;
+    padding: 0;
+    top: 12%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
   
   .logoContainer {
-  width: 220px;
+    width: 220px;
   }
   
   .englishTitle {
@@ -465,9 +471,12 @@ width: 200px;
 /* 450px - 550px */
 @media (min-width: 451px) and (max-width: 550px) {
   .glassPanel {
-    width: 95%;
+    width: 100%;
     padding: 0.9rem 1rem;
-    bottom: 17%;
+    top: 13%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
   
   .logoContainer {
@@ -525,9 +534,12 @@ width: 200px;
 /* 550px - 650px */
 @media (min-width: 551px) and (max-width: 650px) {
   .glassPanel {
-    width: 95%;
+    width: 100%;
     padding: 1rem 1.2rem;
-    bottom: 16%;
+    top: 14%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
   
   .logoContainer {
@@ -585,13 +597,16 @@ width: 200px;
 /* 650px - 750px */
 @media (min-width: 651px) and (max-width: 750px) {
   .glassPanel {
-    width: 70%;
+    width: 100%;
     padding: 1rem 1.3rem;
-    bottom: 15%;
+    top: 15%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
   
   .logoContainer {
-  width: 250px;
+    width: 250px;
   }
   
   .englishTitle {
@@ -637,7 +652,7 @@ width: 200px;
   }
   
   .logoContainer {
-     width: 250px;
+    width: 250px;
   }
   
   .englishTitle {
@@ -672,7 +687,7 @@ width: 200px;
   }
   
   .logoContainer {
-  width: 250px;
+    width: 250px;
   }
   
   .englishTitle {
@@ -693,9 +708,7 @@ width: 200px;
   .glassPanel {
     width: 55%;
   }
-  
 
-  
   .englishTitle {
     font-size: 1.9rem;
   }
@@ -717,7 +730,6 @@ width: 200px;
   .glassPanel {
     width: 40%;
   }
-
   
   .englishTitle {
     font-size: 2rem;

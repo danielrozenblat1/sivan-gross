@@ -17,7 +17,8 @@ const InteriorDesign = () => {
       id: 1,
       title: 'ליווי מלא - תכנון ועיצוב פנים',
       defaultImage: shiputz,
-      hoverImage: shiputz2
+      hoverImage: shiputz2,
+      isSpecial: true
     },
     {
       id: 2,
@@ -33,7 +34,7 @@ const InteriorDesign = () => {
     },
     {
       id: 4,
-      title: 'ליווי ליום רכישות',
+      title: 'מסע רכישות מעוצב',
       defaultImage: livui,
       hoverImage:livui
     }
@@ -95,11 +96,11 @@ const InteriorDesign = () => {
               className={`${styles.image} ${styles.hoverImage}`}
             />
             
-            <div className={styles.titleContainer}>
+            <div className={`${styles.titleContainer} ${item.isSpecial ? styles.titleContainerSpecial : ''}`}>
               <h3 className={styles.title}>{item.title}</h3>
             </div>
             
-            <div className={styles.buttonWrapper}>
+            <div className={`${styles.buttonWrapper} ${item.isSpecial ? styles.buttonWrapperSpecial : ''}`}>
               <button 
                 className={styles.whatsappButton}
                 onClick={() => handleWhatsAppClick(item.title)}

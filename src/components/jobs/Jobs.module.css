@@ -119,8 +119,16 @@
     inset 0 1px 0 rgba(139, 69, 19, 0.2);
 }
 
+.titleContainerSpecial {
+  top: 70%;
+}
+
 .imageWrapper:hover .titleContainer {
   opacity: 0.85;
+  transform: translate(-50%, -50%) translateY(-8px) scale(0.98);
+}
+
+.imageWrapper:hover .titleContainerSpecial {
   transform: translate(-50%, -50%) translateY(-8px) scale(0.98);
 }
 
@@ -144,6 +152,10 @@
   transform: translateX(-50%) translateY(15px);
   opacity: 0;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.buttonWrapperSpecial {
+  bottom: 120px;
 }
 
 .imageWrapper:hover .buttonWrapper {
@@ -221,6 +233,10 @@
     padding: 12px 18px;
   }
 
+  .titleContainerSpecial {
+    top: 75%;
+  }
+
   .title {
     font-size: 1.2rem;
     font-weight: 600;
@@ -230,6 +246,10 @@
 
   .buttonWrapper {
     bottom: 20px;
+  }
+
+  .buttonWrapperSpecial {
+    bottom: 90px;
   }
 
   .whatsappButton {
@@ -258,6 +278,18 @@
     font-size: 1.3rem;
   }
 
+  .titleContainerSpecial {
+    top: 72%;
+  }
+
+  .buttonWrapper {
+    bottom: 25px;
+  }
+
+  .buttonWrapperSpecial {
+    bottom: 100px;
+  }
+
   .whatsappButton {
     font-size: 1.05rem;
     padding: 15px 32px;
@@ -279,6 +311,18 @@
   
   .title {
     font-size: 1.5rem;
+  }
+
+  .titleContainerSpecial {
+    top: 70%;
+  }
+
+  .buttonWrapper {
+    bottom: 30px;
+  }
+
+  .buttonWrapperSpecial {
+    bottom: 120px;
   }
 
   .whatsappButton {

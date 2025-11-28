@@ -92,15 +92,15 @@
 
 /* Set different background images for each image */
 .image1 .backgroundImage {
-    background-image: url('../images/סיון\ גרוס\ סוויטה\ של\ אושר\ 10.png');
+    background-image: url('../images/סיון\ גרוס\ פרלקס\ תמונות\ 1.png');
 }
 
 .image2 .backgroundImage {
-    background-image: url('../images/סיון\ גרוס\ סוויטה\ של\ אושר\ 12.png');
+    background-image: url('../images/סיון\ גרוס\ פרלקס\ תמונות\ 2.png');
 }
 
 .image3 .backgroundImage {
-    background-image: url('../images/סיון\ גרוס\ סוויטה\ של\ אושר\ 9.png');
+    background-image: url('../images/סיון\ גרוס\ פרלקס\ תמונות\ 3.png');
 }
 
 /* Add hover effect */
