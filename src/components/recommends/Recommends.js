@@ -14,6 +14,7 @@ import result5 from "../../images/סיון גרוס המלצות 5.png";
 import result6 from "../../images/סיון גרוס המלצות 6.png";
 import result7 from "../../images/סיון גרוס המלצות 7.png";
 import Testimonials from '../newRecommends/NewRecommends';
+import SixthScreen from '../../screens/SixthScreen';
 
 const Recommendations = () => {
   const images = [
@@ -50,7 +51,9 @@ const Recommendations = () => {
     גללו כלפי מעלה בין התמונות
       </div>
    <Testimonials testimonialImages={images}/>
+
       <Button text="סיון, בואי נדבר!" />
+          <SixthScreen/>
     </div>
   );
 };

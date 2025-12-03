@@ -117,7 +117,7 @@
 /* Glass Panel Styles */
 .glassPanel {
   position: absolute;
-  top: 15%;
+  bottom: 15%;
   left: 50%;
   transform: translateX(-50%);
   width: 35%;
@@ -237,7 +237,7 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translate(-50%, -20px);
+    transform: translate(-50%, 20px);
   }
   100% {
     opacity: 1;
@@ -330,12 +330,10 @@
 /* Below 350px */
 @media (max-width: 349px) {
   .glassPanel {
-    width: 100%;
-    padding: 0;
-    top: 10%;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
+    width: 90%;
+    padding: 0.8rem 1rem;
+    bottom: 10%;
+    border-radius: 10px;
   }
   
   .logoContainer {
@@ -404,12 +402,10 @@
 /* 350px - 450px */
 @media (min-width: 350px) and (max-width: 450px) {
   .glassPanel {
-    width: 100%;
-    padding: 0;
-    top: 12%;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
+    width: 90%;
+    padding: 0.8rem 1rem;
+    bottom: 12%;
+    border-radius: 10px;
   }
   
   .logoContainer {
@@ -471,12 +467,10 @@
 /* 450px - 550px */
 @media (min-width: 451px) and (max-width: 550px) {
   .glassPanel {
-    width: 100%;
+    width: 90%;
     padding: 0.9rem 1rem;
-    top: 13%;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
+    bottom: 13%;
+    border-radius: 10px;
   }
   
   .logoContainer {
@@ -534,12 +528,10 @@
 /* 550px - 650px */
 @media (min-width: 551px) and (max-width: 650px) {
   .glassPanel {
-    width: 100%;
+    width: 90%;
     padding: 1rem 1.2rem;
-    top: 14%;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
+    bottom: 14%;
+    border-radius: 10px;
   }
   
   .logoContainer {
@@ -597,12 +589,10 @@
 /* 650px - 750px */
 @media (min-width: 651px) and (max-width: 750px) {
   .glassPanel {
-    width: 100%;
+    width: 90%;
     padding: 1rem 1.3rem;
-    top: 15%;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
+    bottom: 15%;
+    border-radius: 10px;
   }
   
   .logoContainer {
@@ -649,6 +639,7 @@
   .glassPanel {
     width: 65%;
     padding: 1rem 1.4rem;
+    bottom: 15%;
   }
   
   .logoContainer {
@@ -684,6 +675,7 @@
   .glassPanel {
     width: 60%;
     padding: 1rem 1.5rem;
+    bottom: 15%;
   }
   
   .logoContainer {
@@ -707,6 +699,7 @@
 @media (min-width: 951px) and (max-width: 1050px) {
   .glassPanel {
     width: 55%;
+    bottom: 15%;
   }
 
   .englishTitle {
@@ -722,6 +715,7 @@
 @media (min-width: 1051px) and (max-width: 1150px) {
   .glassPanel {
     width: 45%;
+    bottom: 15%;
   }
 }
 
@@ -729,6 +723,7 @@
 @media (min-width: 1151px) and (max-width: 1250px) {
   .glassPanel {
     width: 40%;
+    bottom: 15%;
   }
   
   .englishTitle {

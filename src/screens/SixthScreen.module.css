@@ -1,0 +1,268 @@
+.title {
+    font-size: 2.5rem;
+    margin: 2% auto;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    font-family: 'Bona', sans-serif;
+    text-align: center;
+    direction: rtl;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #f5d5aa 30%, #f0dcc0 50%, #ead3b3 70%, #f7e1b8 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+    padding: 0 1rem;
+}
+.description {
+    font-family: 'Bona', sans-serif;
+    font-size: 1.4rem;
+margin:2% auto;
+   text-align: center;
+   
+}
+
+
+/* קונטיינר לסרטון */
+.videoContainer {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+/* שומר על 50% רוחב ויחס 16:9 במסכים גדולים */
+.videoWrapper {
+  position: relative;
+  width: 50%;
+  padding-bottom: 28.125%; /* 50% * 9/16 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(14, 31, 80, 0.15);
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 20px;
+}
+
+/* Responsive Design */
+
+/* 1150-1250px */
+@media (min-width: 1150px) and (max-width: 1250px) {
+  .title {
+    font-size: 2.3rem;
+    width: 55%;
+  }
+  
+  .description {
+    font-size: 1.3rem;
+    width: 55%;
+  }
+  
+  .videoWrapper {
+    width: 55%;
+    padding-bottom: 30.9375%; /* 55% * 9/16 */
+  }
+}
+
+/* 1050-1150px */
+@media (min-width: 1050px) and (max-width: 1149px) {
+  .title {
+    font-size: 2.2rem;
+    width: 60%;
+  }
+  
+  .description {
+    font-size: 1.25rem;
+    width: 60%;
+  }
+  
+  .videoWrapper {
+    width: 55%;
+    padding-bottom: 30.9375%; /* 55% * 9/16 */
+  }
+}
+
+/* 950-1050px */
+@media (min-width: 950px) and (max-width: 1049px) {
+  .title {
+    font-size: 2.1rem;
+    width: 65%;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    width: 65%;
+  }
+  
+  .videoWrapper {
+    width: 55%;
+    padding-bottom: 30.9375%; /* 55% * 9/16 */
+  }
+}
+
+/* 850-950px */
+@media (min-width: 850px) and (max-width: 949px) {
+  .title {
+    font-size: 2rem;
+    width: 70%;
+  }
+  
+  .description {
+    font-size: 1.15rem;
+    width: 70%;
+  }
+  
+  .videoWrapper {
+    width: 55%;
+    padding-bottom: 30.9375%; /* 55% * 9/16 */
+  }
+}
+
+/* 750-850px */
+@media (min-width: 750px) and (max-width: 849px) {
+  .title {
+    font-size: 1.9rem;
+    width: 75%;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+    width: 75%;
+  }
+  
+  .videoWrapper {
+    width: 55%;
+    padding-bottom: 30.9375%; /* 55% * 9/16 */
+  }
+}
+
+/* 650-750px */
+@media (min-width: 650px) and (max-width: 749px) {
+  .title {
+    font-size: 1.8rem;
+    width: 80%;
+    letter-spacing: -1.5px;
+  }
+  
+  .description {
+    font-size: 1.05rem;
+    width: 80%;
+  }
+  
+  .videoWrapper {
+    width: 60%;
+    padding-bottom: 33.75%; /* 60% * 9/16 */
+  }
+}
+
+/* 550-650px */
+@media (min-width: 550px) and (max-width: 649px) {
+  .title {
+    font-size: 1.7rem;
+    width: 85%;
+    letter-spacing: -1px;
+  }
+  
+  .description {
+    font-size: 1rem;
+    width: 85%;
+  }
+  
+  .videoWrapper {
+    width: 70%;
+    padding-bottom: 39.375%; /* 70% * 9/16 */
+  }
+}
+
+/* 450-550px */
+@media (min-width: 450px) and (max-width: 549px) {
+  .title {
+    font-size: 1.6rem;
+    width: 90%;
+    letter-spacing: -0.5px;
+  }
+  
+  .description {
+    font-size: 0.95rem;
+    width: 90%;
+  }
+  
+  .videoWrapper {
+    width: 80%;
+    padding-bottom: 45%; /* 80% * 9/16 */
+    border-radius: 15px;
+  }
+  
+  .videoWrapper iframe {
+    border-radius: 15px;
+  }
+}
+
+/* 350-450px */
+@media (min-width: 350px) and (max-width: 449px) {
+  .title {
+    font-size: 1.6rem;
+    width: 92%;
+  
+    margin: 3% auto;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+    width: 92%;
+    margin: 3% auto;
+  }
+  
+  .videoWrapper {
+    width: 90%;
+    padding-bottom: 50.625%; /* 90% * 9/16 */
+    border-radius: 12px;
+  }
+  
+  .videoWrapper iframe {
+    border-radius: 12px;
+  }
+  
+  .videoContainer {
+    margin: 20px auto;
+  }
+}
+
+/* מתחת ל-350px */
+@media (max-width: 349px) {
+  .title {
+    font-size: 1.4rem;
+    width: 95%;
+    letter-spacing: 0;
+    margin: 4% auto;
+    line-height: 1.2;
+  }
+  
+  .description {
+    font-size: 0.85rem;
+    width: 95%;
+    margin: 4% auto;
+    line-height: 1.5;
+  }
+  
+  .videoWrapper {
+    width: 95%;
+    padding-bottom: 53.4375%; /* 95% * 9/16 */
+    border-radius: 10px;
+  }
+  
+  .videoWrapper iframe {
+    border-radius: 10px;
+  }
+  
+  .videoContainer {
+    margin: 15px auto;
+  }
+}

@@ -23,6 +23,7 @@ import Recommendations from './components/recommends/Recommends';
 import SocialLinks from './components/social/Social';
 import SivanNew from './screens/SivanProjects';
 import InteriorDesign from './components/jobs/Jobs';
+import SixthScreen from './screens/SixthScreen';
 // מערך תמונות מסוגנן בפורמט שהקומפוננט מצפה לקבל
 const images = [
   { src: open1, },
@@ -44,7 +45,7 @@ function App() {
     <AboutMe/>
     <SivanNew/>
     <Recommendations/>
-    
+
     {/* <SecondScreen/> */}
     <ForthScreen/>
 
