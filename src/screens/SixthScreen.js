@@ -3,7 +3,7 @@ import styles from "./SixthScreen.module.css"
 const SixthScreen = () => {
   return (
     <>
-      <div className={styles.title}>ובגדל.. זה נראה ככה</div>
+      <div className={styles.title}>ובגדול.. זה נראה ככה</div>
       <div className={styles.description}>
       תפעילו את הסרטון ותהנו :)
       </div>

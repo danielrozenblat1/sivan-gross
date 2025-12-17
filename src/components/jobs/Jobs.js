@@ -36,7 +36,8 @@ const InteriorDesign = () => {
       id: 4,
       title: 'מסע רכישות מעוצב',
       defaultImage: livui,
-      hoverImage:livui
+      hoverImage: livui,
+      isSpecial: true
     }
   ];
 

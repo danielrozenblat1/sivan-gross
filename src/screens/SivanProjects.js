@@ -155,6 +155,7 @@ import main3 from "../images/הורים ראשית.png"
 import main4 from "../images/אלמוג ראשית.png"
 import main5 from "../images/סיון גרוס הוילה של איתמר 14.png"
 import Button from '../components/button/Button';
+import SixthScreen from './SixthScreen';
 const SivanNetflixGallery = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -306,6 +307,7 @@ const SivanNetflixGallery = () => {
 
   return <>
     <div className={styles.background}>
+        <SixthScreen/>
       <div className={styles.title} id="פרוייקטים">הפרוייקטים שלי</div>
       <div className={styles.description}>
         כשאני מעצבת חלל, אני לא עוצרת ביופי החיצוני, אני יוצרת חוויה- כזו שנכנסים אליה וזוכרים.

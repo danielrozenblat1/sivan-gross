@@ -53,7 +53,7 @@ const Recommendations = () => {
    <Testimonials testimonialImages={images}/>
 
       <Button text="סיון, בואי נדבר!" />
-          <SixthScreen/>
+        
     </div>
   );
 };

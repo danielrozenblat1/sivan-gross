@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Me.module.css';
-import sivan from "../../images/סיון תדמית.jpeg";
+import sivan from "../../images/סיון תמונה חדשה.png";
 import ScrollReveal from 'scrollreveal';
 import InteriorDesign from '../jobs/Jobs';
 

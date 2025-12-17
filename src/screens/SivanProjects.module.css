@@ -133,6 +133,11 @@
     filter: brightness(0.8) contrast(1.1);
 }
 
+/* מיקום מיוחד לתמונה של הוילה של איתמר (הראשונה) */
+.itamarThumbnail {
+    object-position: center 30%;
+}
+
 .netflixThumbnail:hover .thumbnailImage {
     transform: scale(1.1);
     filter: brightness(1) contrast(1.2);
@@ -479,6 +484,11 @@
         height: 120px;
     }
     
+    /* מיקום תמונה של איתמר למטה יותר במובייל קטן */
+    .netflixThumbnail:first-child .thumbnailImage {
+        object-position: center 25%;
+    }
+    
     .thumbnailOverlay {
         padding: 1rem 0.8rem 0.8rem;
     }
@@ -560,6 +570,11 @@
     
     .netflixThumbnail {
         height: 140px;
+    }
+    
+    /* מיקום תמונה של איתמר למטה יותר במובייל */
+    .netflixThumbnail:first-child .thumbnailImage {
+        object-position: center 25%;
     }
     
     .thumbnailOverlay {
@@ -648,6 +663,11 @@
         height: 160px;
     }
     
+    /* מיקום תמונה של איתמר למטה יותר במובייל */
+    .netflixThumbnail:first-child .thumbnailImage {
+        object-position: center 30%;
+    }
+    
     .thumbnailOverlay {
         padding: 1.5rem 1.2rem 1.2rem;
         transform: translateY(0);
@@ -732,6 +752,11 @@
     
     .netflixThumbnail {
         height: 170px;
+    }
+    
+    /* מיקום תמונה של איתמר למטה יותר */
+    .netflixThumbnail:first-child .thumbnailImage {
+        object-position: center 35%;
     }
     
     .thumbnailOverlay {
