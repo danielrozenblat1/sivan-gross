@@ -343,6 +343,38 @@
     z-index: 5;
 }
 
+/* Bottom Image Container */
+.bottomImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 3rem auto;
+    padding: 0;
+    visibility: hidden; /* Initial state for ScrollReveal */
+    box-sizing: border-box;
+    position: relative;
+    z-index: 5;
+}
+
+.bottomImage {
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(193, 144, 50, 0.15);
+    border: 1px solid rgba(193, 144, 50, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bottomImage:hover {
+    transform: scale(1.02);
+    box-shadow: 
+        0 6px 25px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(193, 144, 50, 0.25);
+}
+
 /* Summary Section */
 .summarySection {
     width: 100%;
@@ -614,6 +646,10 @@
         width: 40px;
         height: 40px;
     }
+
+    .bottomImage {
+        width: 300px;
+    }
 }
 
 /* 350px - 450px */
@@ -677,6 +713,10 @@
         width: 50px;
         height: 50px;
     }
+
+    .bottomImage {
+        width: 300px;
+    }
 }
 
 /* 450px - 550px */
@@ -718,6 +758,10 @@
         width: 55px;
         height: 55px;
     }
+
+    .bottomImage {
+        width: 300px;
+    }
 }
 
 /* 550px - 650px */
@@ -754,6 +798,10 @@
         width: 60px;
         height: 60px;
     }
+
+    .bottomImage {
+        width: 300px;
+    }
 }
 
 /* 650px - 750px */
@@ -771,6 +819,10 @@
     .featureBox {
         width: 45%;
         min-width: 210px;
+    }
+
+    .bottomImage {
+        width: 300px;
     }
 }
 
@@ -790,6 +842,10 @@
         width: 30%;
         min-width: 200px;
     }
+
+    .bottomImage {
+        width: 300px;
+    }
 }
 
 /* 850px - 950px */
@@ -804,6 +860,10 @@
         width: 23%;
         min-width: 180px;
     }
+
+    .bottomImage {
+        width: 300px;
+    }
 }
 
 /* 950px - 1050px */
@@ -814,6 +874,10 @@
     
     .featureBox {
         width: 200px;
+    }
+
+    .bottomImage {
+        width: 300px;
     }
 }
 
@@ -826,6 +890,10 @@
     .featureBox {
         width: 210px;
     }
+
+    .bottomImage {
+        width: 300px;
+    }
 }
 
 /* 1150px - 1250px */
@@ -836,5 +904,9 @@
     
     .featureBox {
         width: 220px;
+    }
+
+    .bottomImage {
+        width: 300px;
     }
 }

@@ -9,7 +9,7 @@ import Button from '../components/button/Button';
 import ParralexScreen from './ParralexScreen';
 import FifthScreen from './FifthScreen';
 import SocialLinks from '../components/social/Social';
-
+import miluim from "../images/סיון מילואים.png"
 // Heebo פונט משתמש ב-HeeboR כגרסה רגילה של הפונט
 
 const ForthScreen = () => {
@@ -18,6 +18,7 @@ const ForthScreen = () => {
     const introRef = useRef(null);
     const summaryRef = useRef(null);
     const parallaxRef = useRef(null);
+    const bottomImageRef = useRef(null);
     
     const INTRO_TEXTS = [
         "נכנסים לבית חדש?",
@@ -159,6 +160,16 @@ const ForthScreen = () => {
                     duration: 1000
                 });
             }
+
+            // Reveal bottom image
+            if (bottomImageRef.current) {
+                sr.reveal(bottomImageRef.current, {
+                    origin: 'bottom',
+                    distance: '40px',
+                    delay: 600,
+                    duration: 1200
+                });
+            }
         }, 200);
         
         // Cleanup function
@@ -206,6 +217,14 @@ const ForthScreen = () => {
                 
                 <div ref={summaryRef} className={styles.buttonContainer}>
                     <Button text="סיון, בואי נדבר!"/>
+                </div>
+
+                <div ref={bottomImageRef} className={styles.bottomImageContainer}>
+                    <img 
+                        src={miluim} 
+                        alt="תמונה" 
+                        className={styles.bottomImage}
+                    />
                 </div>
 
                 <ParralexScreen/>
